@@ -1,4 +1,9 @@
 package org.example.finalworkapi.Domain.RepositoryInterfaces;
 
-public interface IMaintenanceRepository {
+import org.example.finalworkapi.Domain.Entities.Maintenance;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IMaintenanceRepository extends JpaRepository<Maintenance, Integer> {
 }
