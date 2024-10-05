@@ -1,12 +1,10 @@
 package org.example.finalworkapi.Domain.Entities;
 
 import java.util.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "vehicle")
 public class Vehicle {
 
     @Id
@@ -14,6 +12,7 @@ public class Vehicle {
     protected int idVehicle;
     protected String brand;
     protected String model;
+    protected String plate;
     protected Date yearManufacture;
     protected int mileage;
     protected String maintenancePlan;
@@ -24,13 +23,22 @@ public class Vehicle {
     public Vehicle() {
     }
 
-    public Vehicle(int idVehicle, String brand, String model, Date yearManufacture, int mileage, String maintenancePlan) {
+    public Vehicle(int idVehicle, String brand, String model, String plate, Date yearManufacture, int mileage, String maintenancePlan) {
         this.idVehicle = idVehicle;
         this.brand = brand;
         this.model = model;
+        this.plate = plate;
         this.yearManufacture = yearManufacture;
         this.mileage = mileage;
         this.maintenancePlan = maintenancePlan;
+    }
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 
     public int getIdVehicle() {
