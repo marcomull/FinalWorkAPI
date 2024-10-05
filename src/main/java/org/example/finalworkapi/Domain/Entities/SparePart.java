@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class SparPart {
+public class SparePart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class SparPart {
     // Constructors, getters, setters
     // You can generate these using your IDE or manually
 
-    public SparPart() {
+    public SparePart() {
     }
 
-    public SparPart(int idSparePart, int idLogistics, Date arrivalDate, String sparePart, int quantity) {
+    public SparePart(int idSparePart, int idLogistics, Date arrivalDate, String sparePart, int quantity) {
         this.idSparePart = idSparePart;
         this.idLogistics = idLogistics;
         this.arrivalDate = arrivalDate;
