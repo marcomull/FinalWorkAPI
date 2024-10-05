@@ -11,7 +11,7 @@ public class SparPart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int idRepuesto;
+    protected int idSparePart;
     protected int idLogistics;
     protected Date arrivalDate;
     protected String sparePart;
@@ -23,20 +23,20 @@ public class SparPart {
     public SparPart() {
     }
 
-    public SparPart(int idRepuesto, int idLogistics, Date arrivalDate, String sparePart, int quantity) {
-        this.idRepuesto = idRepuesto;
+    public SparPart(int idSparePart, int idLogistics, Date arrivalDate, String sparePart, int quantity) {
+        this.idSparePart = idSparePart;
         this.idLogistics = idLogistics;
         this.arrivalDate = arrivalDate;
         this.sparePart = sparePart;
         this.quantity = quantity;
     }
 
-    public int getIdRepuesto() {
-        return idRepuesto;
+    public int getIdSparePart() {
+        return idSparePart;
     }
 
-    public void setIdRepuesto(int idRepuesto) {
-        this.idRepuesto = idRepuesto;
+    public void setIdSparePart(int idSparePart) {
+        this.idSparePart = idSparePart;
     }
 
     public int getIdLogistics() {
