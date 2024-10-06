@@ -1,5 +1,7 @@
 package org.example.finalworkapi.Presentation;
 
+import org.example.finalworkapi.Application.ApplicationServices.MaintenanceApplicationService;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO;
 import org.example.finalworkapi.Domain.DomainServices.MaintenanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,16 +16,16 @@ import java.util.List;
 public class MaintenanceController {
 
     @Autowired
-    private MaintenanceService maintenanceService;
+    private MaintenanceApplicationService maintenanceApplicationService;
 
-    public MaintenanceController(MaintenanceService maintenanceService) {
-        this.maintenanceService = maintenanceService;
+    public MaintenanceController(MaintenanceApplicationService maintenanceApplicationService) {
+        this.maintenanceApplicationService = maintenanceApplicationService;
     }
 
     @GetMapping
-    public ResponseEntity<List<Object[]>> getMaintenanceDetails() {
+    public ResponseEntity<List<MaintenanceDTO>> getMaintenanceDetails() {
         try {
-            List<Object[]> details = maintenanceService.getAllMaintenanceDetails();
+            List<MaintenanceDTO> details = maintenanceApplicationService.getAllMaintenanceDetails();
             return ResponseEntity.ok(details);
         } catch (Exception e) {
             // Registrar el error
