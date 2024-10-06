@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface IMaintenanceRepository extends JpaRepository<Maintenance, Integer> {
 
-    @Query("SELECT m.idMaintenance, v.mileage, v.plate, v.brand, v.model, v.yearManufacture, " +
+    /*@Query("SELECT m.idMaintenance, v.mileage, v.plate, v.brand, v.model, v.yearManufacture, " +
             "v.maintenancePlan, tm.nameType, rf.descriptionReport, m.dateMaintenance, " +
             "m.descriptions " +
             "FROM Maintenance m " +
@@ -17,6 +17,6 @@ public interface IMaintenanceRepository extends JpaRepository<Maintenance, Integ
             "INNER JOIN m.typeMaintenance tm " +
             "INNER JOIN m.failureReport rf " +
             "INNER JOIN m.administrator a")
-    List<Object[]> findAllMaintenanceDetails();
+    List<Object[]> findAllMaintenanceDetails();*/
 
 }
