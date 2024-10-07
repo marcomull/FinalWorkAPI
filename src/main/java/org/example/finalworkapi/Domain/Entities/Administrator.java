@@ -2,7 +2,6 @@ package org.example.finalworkapi.Domain.Entities;
 
 import jakarta.persistence.*;
 
-//
 @Entity
 @Table(name = "administrator")
 public class Administrator {
