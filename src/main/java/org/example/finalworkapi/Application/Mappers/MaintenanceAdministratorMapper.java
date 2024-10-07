@@ -1,16 +1,14 @@
 package org.example.finalworkapi.Application.Mappers;
 
-import org.example.finalworkapi.Application.DTOs.MaintenanceDTO;
-import org.example.finalworkapi.Domain.Entities.Maintenance;
+import org.example.finalworkapi.Application.DTOs.MaintenanceAdministratorDTO;
 import org.springframework.stereotype.Component;
-
 import java.util.Date;
 
 @Component
-public class MaintenanceMapper {
+public class MaintenanceAdministratorMapper {
 
-    public MaintenanceDTO toDTO(Object[] maintenanceData) {
-        MaintenanceDTO dto = new MaintenanceDTO();
+    public MaintenanceAdministratorDTO toDTO(Object[] maintenanceData) {
+        MaintenanceAdministratorDTO dto = new MaintenanceAdministratorDTO();
         dto.setIdMaintenance((Integer) maintenanceData[0]);
         dto.setMileage((Integer) maintenanceData[1]);
         dto.setPlate((String) maintenanceData[2]);
@@ -24,10 +22,4 @@ public class MaintenanceMapper {
         dto.setDescriptions((String) maintenanceData[10]);
         return dto;
     }
-
-    // Si necesitas mapear de DTO a entidad, puedes agregar otro método
-    //public Maintenance toEntity(MaintenanceDTO dto) {
-        // Implementación inversa si es necesario
-    //}
-
 }
