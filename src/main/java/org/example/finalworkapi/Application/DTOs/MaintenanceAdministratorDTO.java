@@ -2,7 +2,7 @@ package org.example.finalworkapi.Application.DTOs;
 
 import java.util.Date;
 
-public class MaintenanceDTO {
+public class MaintenanceAdministratorDTO {
 
     private int idMaintenance;
     private String plate;
@@ -16,7 +16,7 @@ public class MaintenanceDTO {
     private Date dateMaintenance;
     private String descriptions;
 
-    public MaintenanceDTO(int idMaintenance, String plate, String brand, String model, Date yearManufacture, int mileage, String maintenancePlan, String nameType, String descriptionReport, Date dateMaintenance, String descriptions) {
+    public MaintenanceAdministratorDTO(int idMaintenance, String plate, String brand, String model, Date yearManufacture, int mileage, String maintenancePlan, String nameType, String descriptionReport, Date dateMaintenance, String descriptions) {
         this.idMaintenance = idMaintenance;
         this.plate = plate;
         this.brand = brand;
@@ -30,7 +30,7 @@ public class MaintenanceDTO {
         this.descriptions = descriptions;
     }
 
-    public MaintenanceDTO() {
+    public MaintenanceAdministratorDTO() {
     }
 
     public int getIdMaintenance() {

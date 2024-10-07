@@ -14,7 +14,6 @@ public class ContextMaintenance {
     private EntityManager entityManager;
 
     public List<Object[]> findAllMaintenanceDetails() {
-        // Aquí está la consulta personalizada
         Query query = entityManager.createQuery(
                 "SELECT m.idMaintenance, v.mileage, v.plate, v.brand, v.model, v.yearManufacture, " +
                         "v.maintenancePlan, tm.nameType, rf.descriptionReport, m.dateMaintenance, " +
@@ -24,6 +23,18 @@ public class ContextMaintenance {
                         "INNER JOIN m.typeMaintenance tm " +
                         "INNER JOIN m.failureReport rf " +
                         "INNER JOIN m.administrator a"
+        );
+        return query.getResultList();
+    }
+
+    public List<Object[]> findAllMaintenanceMechanic() {
+        Query query = entityManager.createQuery(
+                "SELECT m.idMaintenance, v.mileage, v.plate, v.brand, v.model, v.yearManufacture, " +
+                        "v.maintenancePlan " +
+                        "FROM Maintenance m " +
+                        "INNER JOIN m.vehicle v " +
+                        "INNER JOIN m.typeMaintenance tm " +
+                        "INNER JOIN m.failureReport rf "
         );
         return query.getResultList();
     }
