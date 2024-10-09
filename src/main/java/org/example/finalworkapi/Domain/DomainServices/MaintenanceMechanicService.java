@@ -16,7 +16,7 @@ public class MaintenanceMechanicService {
     }
 
     public List<Object[]> getAllMaintenanceMechanic() {
-        return databaseContext.findAllMaintenanceMechanic(); // Obtiene los detalles desde DatabaseContext
+        return databaseContext.findAllMaintenanceMechanic();
     }
 
 

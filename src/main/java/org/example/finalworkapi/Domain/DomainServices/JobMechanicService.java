@@ -7,17 +7,17 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class JobService {
+public class JobMechanicService {
 
     private final ContextJob databaseContext;
 
     @Autowired
-    public JobService(ContextJob databaseContext) {
+    public JobMechanicService(ContextJob databaseContext) {
         this.databaseContext = databaseContext;
     }
 
     public List<Object[]> getAllJobs() {
-        return databaseContext.findAllMaintenanceJob(); // Obtiene los detalles desde DatabaseContext
+        return databaseContext.findAllMechanicJob();
     }
 
 }

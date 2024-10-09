@@ -12,11 +12,21 @@ public class ContextJob {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Object[]> findAllMaintenanceJob() {
+    public List<Object[]> findAllMechanicJob() {
         Query query = entityManager.createQuery(
                 "SELECT j.idJob, j.startMaintenance, sp.sparePart, j.endMaintenance " +
                         "FROM Job j " +
                         "INNER JOIN j.idSparePart sp"
+        );
+        return query.getResultList();
+    }
+
+    public List<Object[]> findAllLogisticsJob() {
+        Query query = entityManager.createQuery(
+                "SELECT sp.idSparePart, j.startMaintenance, sp.sparePart, m.idMechanic " +
+                        "FROM Job j " +
+                        "INNER JOIN j.idSparePart sp " +
+                        "INNER JOIN j.idMechanic m"
         );
         return query.getResultList();
     }
