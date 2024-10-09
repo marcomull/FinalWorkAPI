@@ -1,7 +1,7 @@
 package org.example.finalworkapi.Presentation;
 
-import org.example.finalworkapi.Application.ApplicationServices.AppServiceJob;
-import org.example.finalworkapi.Application.DTOs.JobDTO;
+import org.example.finalworkapi.Application.ApplicationServices.JobAppServiceMechanic;
+import org.example.finalworkapi.Application.DTOs.JobMechanicDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/maintenance/job")
-public class JobController {
+@RequestMapping("/maintenance/jobMechanic")
+public class JobMechanicController {
 
     @Autowired
-    private AppServiceJob appServiceJob;
+    private JobAppServiceMechanic appServiceJob;
 
-    public JobController(AppServiceJob appServiceJob) {
+    public JobMechanicController(JobAppServiceMechanic appServiceJob) {
         this.appServiceJob = appServiceJob;
     }
 
     @GetMapping
-    public ResponseEntity<List<JobDTO>> getAllJobs() {
+    public ResponseEntity<List<JobMechanicDTO>> getAllJobs() {
         try {
-            List<JobDTO> details = appServiceJob.getAllJobs();
+            List<JobMechanicDTO> details = appServiceJob.getAllJobs();
             return ResponseEntity.ok(details);
         } catch (Exception e) {
             System.err.println("Error al obtener los detalles de mantenimiento: " + e.getMessage());

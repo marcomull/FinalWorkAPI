@@ -1,20 +1,29 @@
 package org.example.finalworkapi.Domain.Entities;
 
 import java.util.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "sparepart")
 public class SparePart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idSparePart")
     protected int idSparePart;
-    protected int idLogistics;
+
+    @ManyToOne
+    @JoinColumn(name = "idLogistics")
+    protected Logistics idLogistics;
+
+    @JoinColumn(name = "arrivalDate")
     protected Date arrivalDate;
+
+    @JoinColumn(name = "sparePart")
     protected String sparePart;
+
+    @JoinColumn(name = "quantity")
     protected int quantity;
 
     // Constructors, getters, setters
@@ -23,7 +32,7 @@ public class SparePart {
     public SparePart() {
     }
 
-    public SparePart(int idSparePart, int idLogistics, Date arrivalDate, String sparePart, int quantity) {
+    public SparePart(int idSparePart, Logistics idLogistics, Date arrivalDate, String sparePart, int quantity) {
         this.idSparePart = idSparePart;
         this.idLogistics = idLogistics;
         this.arrivalDate = arrivalDate;
@@ -39,11 +48,11 @@ public class SparePart {
         this.idSparePart = idSparePart;
     }
 
-    public int getIdLogistics() {
+    public Logistics getIdLogistics() {
         return idLogistics;
     }
 
-    public void setIdLogistics(int idLogistics) {
+    public void setIdLogistics(Logistics idLogistics) {
         this.idLogistics = idLogistics;
     }
 

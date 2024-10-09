@@ -1,0 +1,30 @@
+package org.example.finalworkapi.Application.ApplicationServices;
+
+import org.example.finalworkapi.Application.DTOs.JobLogisticsDTO;
+import org.example.finalworkapi.Application.Mappers.SparePartLogisticsMapper;
+import org.example.finalworkapi.Domain.DomainServices.JobLogisticsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
+public class JobAppServiceLogistics {
+
+    private final JobLogisticsService jobLogisticsService;
+    private final SparePartLogisticsMapper jobLogisticsMapper;
+
+    @Autowired
+    public JobAppServiceLogistics(JobLogisticsService jobLogisticsService, SparePartLogisticsMapper jobLogisticsMapper) {
+        this.jobLogisticsService = jobLogisticsService;
+        this.jobLogisticsMapper = jobLogisticsMapper;
+    }
+
+    public List<JobLogisticsDTO> getAllJobsLogistics() {
+        List<Object[]> maintenanceList = jobLogisticsService.getAllJobsLogistics();
+
+        return maintenanceList.stream()
+                .map(jobLogisticsMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+}

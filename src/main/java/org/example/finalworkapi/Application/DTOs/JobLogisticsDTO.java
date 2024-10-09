@@ -2,29 +2,29 @@ package org.example.finalworkapi.Application.DTOs;
 
 import java.util.Date;
 
-public class JobDTO {
+public class JobLogisticsDTO {
 
-    private int idJob;
+    private int idSparePart;
     private Date startMaintenance;
-    private Date endMaintenance;
     private String sparePart;
+    private int mechanic;
 
-    public JobDTO(int idJob, Date startMaintenance, Date endMaintenance, String sparePart) {
-        this.idJob = idJob;
+    public JobLogisticsDTO(int idSparePart, Date startMaintenance, String sparePart, int mechanic) {
+        this.idSparePart = idSparePart;
         this.startMaintenance = startMaintenance;
-        this.endMaintenance = endMaintenance;
         this.sparePart = sparePart;
+        this.mechanic = mechanic;
     }
 
-    public JobDTO() {
+    public JobLogisticsDTO() {
     }
 
-    public int getIdJob() {
-        return idJob;
+    public int getIdSparePart() {
+        return idSparePart;
     }
 
-    public void setIdJob(int idJob) {
-        this.idJob = idJob;
+    public void setIdSparePart(int idSparePart) {
+        this.idSparePart = idSparePart;
     }
 
     public Date getStartMaintenance() {
@@ -35,19 +35,19 @@ public class JobDTO {
         this.startMaintenance = startMaintenance;
     }
 
-    public Date getEndMaintenance() {
-        return endMaintenance;
-    }
-
-    public void setEndMaintenance(Date endMaintenance) {
-        this.endMaintenance = endMaintenance;
-    }
-
     public String getSparePart() {
         return sparePart;
     }
 
     public void setSparePart(String sparePart) {
         this.sparePart = sparePart;
+    }
+
+    public int getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(int mechanic) {
+        this.mechanic = mechanic;
     }
 }

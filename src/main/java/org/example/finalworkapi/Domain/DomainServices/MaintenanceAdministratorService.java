@@ -16,7 +16,7 @@ public class MaintenanceAdministratorService {
     }
 
     public List<Object[]> getAllMaintenanceDetails() {
-        return databaseContext.findAllMaintenanceDetails(); // Obtiene los detalles desde DatabaseContext
+        return databaseContext.findAllMaintenanceDetails();
     }
 
 }
