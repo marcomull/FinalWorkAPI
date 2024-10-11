@@ -21,8 +21,7 @@ public class ContextMaintenance {
                         "INNER JOIN m.vehicle v " +
                         "INNER JOIN m.typeMaintenance tm " +
                         "INNER JOIN m.failureReport rf " +
-                        "INNER JOIN m.administrator a"
-        );
+                        "INNER JOIN m.administrator a");
         return query.getResultList();
     }
 
@@ -33,8 +32,7 @@ public class ContextMaintenance {
                         "FROM Maintenance m " +
                         "INNER JOIN m.vehicle v " +
                         "INNER JOIN m.typeMaintenance tm " +
-                        "INNER JOIN m.failureReport rf "
-        );
+                        "INNER JOIN m.failureReport rf ");
         return query.getResultList();
     }
 }

@@ -15,6 +15,7 @@ import java.util.List;
 public class MaintenanceAdministratorController {
 
     @Autowired
+
     private MaintenanceAppServiceAdministrator maintenanceApplicationService;
 
     public MaintenanceAdministratorController(MaintenanceAppServiceAdministrator maintenanceApplicationService) {
@@ -23,13 +24,10 @@ public class MaintenanceAdministratorController {
 
     @GetMapping
     public ResponseEntity<List<MaintenanceAdministratorDTO>> getMaintenanceDetails() {
-        try {
-            List<MaintenanceAdministratorDTO> details = maintenanceApplicationService.getAllMaintenanceDetails();
-            return ResponseEntity.ok(details);
-        } catch (Exception e) {
-            System.err.println("Error al obtener los detalles de mantenimiento: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
+
+        List<MaintenanceAdministratorDTO> details = maintenanceApplicationService.getAllMaintenanceDetails();
+        return ResponseEntity.ok(details);
+
     }
 
 }

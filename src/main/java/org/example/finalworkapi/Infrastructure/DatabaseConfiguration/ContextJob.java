@@ -16,8 +16,7 @@ public class ContextJob {
         Query query = entityManager.createQuery(
                 "SELECT j.idJob, j.startMaintenance, sp.sparePart, j.endMaintenance " +
                         "FROM Job j " +
-                        "INNER JOIN j.idSparePart sp"
-        );
+                        "INNER JOIN j.idSparePart sp");
         return query.getResultList();
     }
 
@@ -26,8 +25,7 @@ public class ContextJob {
                 "SELECT sp.idSparePart, j.startMaintenance, sp.sparePart, m.idMechanic " +
                         "FROM Job j " +
                         "INNER JOIN j.idSparePart sp " +
-                        "INNER JOIN j.idMechanic m"
-        );
+                        "INNER JOIN j.idMechanic m");
         return query.getResultList();
     }
 

@@ -1,4 +1,4 @@
 package org.example.finalworkapi.Presentation;
 
-public class LogisticsController {
+public class SparePartRequestController {
 }
