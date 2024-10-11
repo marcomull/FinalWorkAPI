@@ -23,13 +23,10 @@ public class MaintenanceMechanicController {
 
     @GetMapping
     public ResponseEntity<List<MaintenanceMechanicDTO>> getMaintenanceMechanic() {
-        try {
-            List<MaintenanceMechanicDTO> details = maintenanceApplicationService.getAllMaintenanceMechanic();
-            return ResponseEntity.ok(details);
-        } catch (Exception e) {
-            System.err.println("Error al obtener los detalles de mantenimiento: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }
+
+        List<MaintenanceMechanicDTO> details = maintenanceApplicationService.getAllMaintenanceMechanic();
+        return ResponseEntity.ok(details);
+
     }
 
 }
