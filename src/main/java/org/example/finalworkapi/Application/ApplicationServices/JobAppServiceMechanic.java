@@ -1,5 +1,6 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
+import org.example.finalworkapi.Domain.InterfaceService.IJobMechanicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.example.finalworkapi.Application.DTOs.JobMechanicDTO;
@@ -14,11 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class JobAppServiceMechanic {
 
-    private final JobMechanicService jobService;
+    private final IJobMechanicService jobService;
     private final SparePartMechanicMapper jobMapper;
 
     @Autowired
-    public JobAppServiceMechanic(JobMechanicService jobService, SparePartMechanicMapper jobMapper) {
+    public JobAppServiceMechanic(IJobMechanicService jobService, SparePartMechanicMapper jobMapper) {
         this.jobService = jobService;
         this.jobMapper = jobMapper;
     }
