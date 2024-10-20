@@ -5,5 +5,5 @@ Talavera Diaz Juan Luis JuanLuisTalavera,
 Gomes Reyes Christopher Enrique ChristopherGR03,
 Bustinza Sucre Julio Julio-BS
 
-Uso de MySQL (La base de datos se llama "transportes"), Spring Boot y Spring Web, Uso de arquitectura Onion
+Uso de MySQL (La base de datos se llama "transportes"), Spring Boot y Spring Web, Uso de arquitectura Onion (aruitectura.drawio.png).
 
