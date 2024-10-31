@@ -24,6 +24,10 @@ public class Administrator {
         this.password = password;
     }
 
+    public Administrator(int administratorId) {
+        this.idAdministrator = administratorId;
+    }
+
     public int getIdAdministrator() {
         return idAdministrator;
     }

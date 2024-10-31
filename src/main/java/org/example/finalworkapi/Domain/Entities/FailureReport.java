@@ -27,6 +27,10 @@ public class FailureReport {
         this.descriptionReport = descriptionReport;
     }
 
+    public FailureReport(int failureReportId) {
+        this.idFailureReport = failureReportId;
+    }
+
     public int getIdFailureReport() {
         return idFailureReport;
     }
