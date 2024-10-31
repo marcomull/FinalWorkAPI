@@ -25,6 +25,10 @@ public class TypeMaintenance {
         this.description = description;
     }
 
+    public TypeMaintenance(int typeMaintenanceId) {
+        this.idTypeMaintenance = typeMaintenanceId;
+    }
+
     public int getIdTypeMaintenance() {
         return idTypeMaintenance;
     }

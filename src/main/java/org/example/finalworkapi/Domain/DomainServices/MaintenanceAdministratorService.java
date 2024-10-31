@@ -1,6 +1,7 @@
 package org.example.finalworkapi.Domain.DomainServices;
 
 import org.example.finalworkapi.Domain.Entities.Maintenance;
+import org.example.finalworkapi.Domain.RepositoryInterfaces.IMaintenanceRepository;
 import org.example.finalworkapi.Infrastructure.DatabaseConfiguration.ContextMaintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceAdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,12 @@ import java.util.List;
 public class MaintenanceAdministratorService implements IMaintenanceAdministratorService{
 
     private final ContextMaintenance databaseContext;
+    private final IMaintenanceRepository maintenanceRepository;
 
     @Autowired
-    public MaintenanceAdministratorService(ContextMaintenance databaseContext) {
+    public MaintenanceAdministratorService(ContextMaintenance databaseContext, IMaintenanceRepository maintenanceRepository) {
         this.databaseContext = databaseContext;
+        this.maintenanceRepository = maintenanceRepository;
     }
 
     @Override
@@ -24,7 +27,7 @@ public class MaintenanceAdministratorService implements IMaintenanceAdministrato
 
     @Override
     public Maintenance addMaintenance(Maintenance maintenance) {
-        return null;
+        return maintenanceRepository.save(maintenance);
     }
 
 

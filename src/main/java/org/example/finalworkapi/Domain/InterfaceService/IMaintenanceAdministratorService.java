@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface IMaintenanceAdministratorService {
     List<Object[]> getAllMaintenanceDetails();
-
     Maintenance addMaintenance(Maintenance maintenance);
 }

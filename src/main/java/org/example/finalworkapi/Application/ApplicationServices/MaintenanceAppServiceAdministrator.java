@@ -1,7 +1,9 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
-import org.example.finalworkapi.Application.DTOs.MaintenanceAdministratorDTO;
+import org.example.finalworkapi.Application.DTOs.AddMaintenanceAdminDTO;
+import org.example.finalworkapi.Application.DTOs.ListMaintenanceAdminDTO;
 import org.example.finalworkapi.Application.Mappers.MaintenanceAdministratorMapper;
+import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceAdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,12 +22,18 @@ public class MaintenanceAppServiceAdministrator {
         this.maintenanceMapper = maintenanceMapper;
     }
 
-    public List<MaintenanceAdministratorDTO> getAllMaintenanceDetails() {
+    public List<ListMaintenanceAdminDTO> getAllMaintenanceDetails() {
         List<Object[]> maintenanceList = maintenanceService.getAllMaintenanceDetails();
 
         return maintenanceList.stream()
                 .map(maintenanceMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    // MaintenanceAppServiceAdministrator.java
+    public Maintenance addMaintenance(AddMaintenanceAdminDTO dto) {
+        Maintenance maintenance = maintenanceMapper.toEntity(dto);  // Convierte el DTO a entidad
+        return maintenanceService.addMaintenance(maintenance);      // Guarda la entidad en el repositorio
     }
 
 }

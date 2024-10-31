@@ -33,6 +33,10 @@ public class Vehicle {
         this.maintenancePlan = maintenancePlan;
     }
 
+    public Vehicle(int vehicleId) {
+        this.idVehicle = vehicleId;
+    }
+
     public String getPlate() {
         return plate;
     }
