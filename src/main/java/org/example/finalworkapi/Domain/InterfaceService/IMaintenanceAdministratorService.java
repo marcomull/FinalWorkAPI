@@ -9,4 +9,5 @@ public interface IMaintenanceAdministratorService {
     List<Object[]> getAllMaintenanceDetails();
     Maintenance addMaintenance(Maintenance maintenance);
     Optional<Maintenance> updateMaintenance(int id, Maintenance maintenanceDetails);
+    boolean deleteMaintenanceById(int id);
 }

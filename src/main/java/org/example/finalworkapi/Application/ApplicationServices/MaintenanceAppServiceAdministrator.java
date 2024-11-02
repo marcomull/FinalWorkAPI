@@ -44,4 +44,9 @@ public class MaintenanceAppServiceAdministrator {
         return maintenanceService.updateMaintenance(id, maintenanceMapper.toEntity(dto));
     }
 
+    //Delete maintenance
+    public boolean deleteMaintenance(ListMaintenanceAdminDTO deleteDTO) {
+        Maintenance maintenanceToDelete = maintenanceMapper.toEntityForDeletion(deleteDTO);
+        return maintenanceService.deleteMaintenanceById(maintenanceToDelete.getIdMaintenance());
+    }
 }

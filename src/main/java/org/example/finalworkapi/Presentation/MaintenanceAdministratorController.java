@@ -59,4 +59,20 @@ public class MaintenanceAdministratorController {
         }
     }
 
+    // Delete maintenance
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteMaintenance(@PathVariable int id) {
+        try {
+            ListMaintenanceAdminDTO deleteDTO = new ListMaintenanceAdminDTO();
+            deleteDTO.setIdMaintenance(id);
+            boolean isDeleted = maintenanceApplicationService.deleteMaintenance(deleteDTO);
+            if (isDeleted) {
+                return ResponseEntity.ok("Mantenimiento eliminado exitosamente con ID: " + id);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mantenimiento no encontrado con ID: " + id);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el mantenimiento: " + e.getMessage());
+        }
+    }
 }
