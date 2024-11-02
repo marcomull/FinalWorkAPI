@@ -9,6 +9,7 @@ import java.util.Date;
 @Component
 public class MaintenanceAdministratorMapper {
 
+    //List maintenance
     public ListMaintenanceAdminDTO toDTO(Object[] maintenanceData) {
         ListMaintenanceAdminDTO dto = new ListMaintenanceAdminDTO();
         dto.setIdMaintenance((Integer) maintenanceData[0]);
@@ -25,7 +26,7 @@ public class MaintenanceAdministratorMapper {
         return dto;
     }
 
-    // MaintenanceAdministratorMapper.java
+    //Add maintenance
     public Maintenance toEntity(AddMaintenanceAdminDTO dto) {
         Maintenance maintenance = new Maintenance();
         maintenance.setVehicle(new Vehicle(dto.getVehicleId()));
@@ -37,4 +38,13 @@ public class MaintenanceAdministratorMapper {
         return maintenance;
     }
 
+    //Update maintenance
+    public void updateEntity(Maintenance maintenance, AddMaintenanceAdminDTO dto) {
+        maintenance.setVehicle(new Vehicle(dto.getVehicleId()));
+        maintenance.setAdministrator(new Administrator(dto.getAdministratorId()));
+        maintenance.setTypeMaintenance(new TypeMaintenance(dto.getTypeMaintenanceId()));
+        maintenance.setFailureReport(new FailureReport(dto.getFailureReportId()));
+        maintenance.setDateMaintenance(dto.getDateMaintenance());
+        maintenance.setDescriptions(dto.getDescriptions());
+    }
 }

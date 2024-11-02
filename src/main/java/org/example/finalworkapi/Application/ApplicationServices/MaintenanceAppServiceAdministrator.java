@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Optional;
+
 
 @Service
 public class MaintenanceAppServiceAdministrator {
@@ -22,6 +24,7 @@ public class MaintenanceAppServiceAdministrator {
         this.maintenanceMapper = maintenanceMapper;
     }
 
+    //List maintenance
     public List<ListMaintenanceAdminDTO> getAllMaintenanceDetails() {
         List<Object[]> maintenanceList = maintenanceService.getAllMaintenanceDetails();
 
@@ -30,10 +33,15 @@ public class MaintenanceAppServiceAdministrator {
                 .collect(Collectors.toList());
     }
 
-    // MaintenanceAppServiceAdministrator.java
+    //Add maintenance
     public Maintenance addMaintenance(AddMaintenanceAdminDTO dto) {
-        Maintenance maintenance = maintenanceMapper.toEntity(dto);  // Convierte el DTO a entidad
-        return maintenanceService.addMaintenance(maintenance);      // Guarda la entidad en el repositorio
+        Maintenance maintenance = maintenanceMapper.toEntity(dto);
+        return maintenanceService.addMaintenance(maintenance);
+    }
+
+    //Update maintenance
+    public Optional<Maintenance> updateMaintenance(int id, AddMaintenanceAdminDTO dto) {
+        return maintenanceService.updateMaintenance(id, maintenanceMapper.toEntity(dto));
     }
 
 }
