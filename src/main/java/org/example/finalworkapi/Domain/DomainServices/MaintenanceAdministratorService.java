@@ -48,4 +48,15 @@ public class MaintenanceAdministratorService implements IMaintenanceAdministrato
         });
     }
 
+    @Override
+    public boolean deleteMaintenanceById(int id) {
+        Optional<Maintenance> maintenance = maintenanceRepository.findById(id);
+        if (maintenance.isPresent()) {
+            maintenanceRepository.delete(maintenance.get());
+            return true;
+        }
+        return false;
+    }
+
+
 }

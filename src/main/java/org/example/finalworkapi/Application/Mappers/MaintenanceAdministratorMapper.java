@@ -47,4 +47,11 @@ public class MaintenanceAdministratorMapper {
         maintenance.setDateMaintenance(dto.getDateMaintenance());
         maintenance.setDescriptions(dto.getDescriptions());
     }
+
+    //Delete maintenance
+    public Maintenance toEntityForDeletion(ListMaintenanceAdminDTO dto) {
+        Maintenance maintenance = new Maintenance();
+        maintenance.setIdMaintenance(dto.getIdMaintenance());
+        return maintenance;
+    }
 }
