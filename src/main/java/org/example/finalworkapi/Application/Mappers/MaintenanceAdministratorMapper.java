@@ -39,13 +39,15 @@ public class MaintenanceAdministratorMapper {
     }
 
     //Update maintenance
-    public void updateEntity(Maintenance maintenance, AddMaintenanceAdminDTO dto) {
+    public Maintenance updateEntity(AddMaintenanceAdminDTO dto) {
+        Maintenance maintenance = new Maintenance();
         maintenance.setVehicle(new Vehicle(dto.getVehicleId()));
         maintenance.setAdministrator(new Administrator(dto.getAdministratorId()));
         maintenance.setTypeMaintenance(new TypeMaintenance(dto.getTypeMaintenanceId()));
         maintenance.setFailureReport(new FailureReport(dto.getFailureReportId()));
         maintenance.setDateMaintenance(dto.getDateMaintenance());
         maintenance.setDescriptions(dto.getDescriptions());
+        return maintenance;
     }
 
     //Delete maintenance

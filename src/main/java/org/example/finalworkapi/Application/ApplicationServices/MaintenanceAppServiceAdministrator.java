@@ -41,7 +41,7 @@ public class MaintenanceAppServiceAdministrator {
 
     //Update maintenance
     public Optional<Maintenance> updateMaintenance(int id, AddMaintenanceAdminDTO dto) {
-        return maintenanceService.updateMaintenance(id, maintenanceMapper.toEntity(dto));
+        return maintenanceService.updateMaintenance(id, maintenanceMapper.updateEntity(dto));
     }
 
     //Delete maintenance
