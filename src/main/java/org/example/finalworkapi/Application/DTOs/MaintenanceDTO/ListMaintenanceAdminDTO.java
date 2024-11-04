@@ -1,4 +1,4 @@
-package org.example.finalworkapi.Application.DTOs;
+package org.example.finalworkapi.Application.DTOs.MaintenanceDTO;
 
 import java.util.Date;
 

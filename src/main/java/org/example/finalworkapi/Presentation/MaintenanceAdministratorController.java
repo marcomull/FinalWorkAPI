@@ -1,8 +1,10 @@
 package org.example.finalworkapi.Presentation;
 
 import org.example.finalworkapi.Application.ApplicationServices.MaintenanceAppServiceAdministrator;
-import org.example.finalworkapi.Application.DTOs.AddMaintenanceAdminDTO;
-import org.example.finalworkapi.Application.DTOs.ListMaintenanceAdminDTO;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.AddMaintenanceAdminDTO;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.ListMaintenanceAdminDTO;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.SearchMaintenanceDTO;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.UpdateMaintenanceDTO;
 import org.example.finalworkapi.Domain.Entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,7 +47,7 @@ public class MaintenanceAdministratorController {
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updateMaintenance(
             @PathVariable int id,
-            @RequestBody AddMaintenanceAdminDTO updateDTO) {
+            @RequestBody UpdateMaintenanceDTO updateDTO) {
         try {
             Optional<Maintenance> updatedMaintenance = maintenanceApplicationService.updateMaintenance(id, updateDTO);
 
@@ -75,4 +77,7 @@ public class MaintenanceAdministratorController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el mantenimiento: " + e.getMessage());
         }
     }
+
+    //Search mantenimiento
+
 }

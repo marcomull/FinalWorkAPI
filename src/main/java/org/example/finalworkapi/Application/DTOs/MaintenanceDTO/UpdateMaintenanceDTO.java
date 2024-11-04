@@ -1,8 +1,8 @@
-package org.example.finalworkapi.Application.DTOs;
+package org.example.finalworkapi.Application.DTOs.MaintenanceDTO;
 
 import java.util.Date;
 
-public class AddMaintenanceAdminDTO {
+public class UpdateMaintenanceDTO {
     private int vehicleId;
     private int administratorId;
     private int typeMaintenanceId;
@@ -10,7 +10,7 @@ public class AddMaintenanceAdminDTO {
     private Date dateMaintenance;
     private String descriptions;
 
-    public AddMaintenanceAdminDTO(int vehicleId, int administratorId, int typeMaintenanceId, int failureReportId, Date dateMaintenance, String descriptions) {
+    public UpdateMaintenanceDTO(int vehicleId, int administratorId, int typeMaintenanceId, int failureReportId, Date dateMaintenance, String descriptions) {
         this.vehicleId = vehicleId;
         this.administratorId = administratorId;
         this.typeMaintenanceId = typeMaintenanceId;
@@ -19,7 +19,7 @@ public class AddMaintenanceAdminDTO {
         this.descriptions = descriptions;
     }
 
-    public AddMaintenanceAdminDTO() {}
+    public UpdateMaintenanceDTO() {}
 
     public int getVehicleId() {
         return vehicleId;

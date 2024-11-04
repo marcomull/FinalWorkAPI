@@ -1,15 +1,16 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
-import org.example.finalworkapi.Application.DTOs.AddMaintenanceAdminDTO;
-import org.example.finalworkapi.Application.DTOs.ListMaintenanceAdminDTO;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.AddMaintenanceAdminDTO;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.ListMaintenanceAdminDTO;
+import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.UpdateMaintenanceDTO;
 import org.example.finalworkapi.Application.Mappers.MaintenanceAdministratorMapper;
 import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceAdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
+
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.Optional;
 
 
 @Service
@@ -17,6 +18,10 @@ public class MaintenanceAppServiceAdministrator {
 
     private final IMaintenanceAdministratorService maintenanceService;
     private final MaintenanceAdministratorMapper maintenanceMapper;
+    private Map<Integer, List<Maintenance>> maintenanceByVehicleId = new HashMap<>();
+    private Map<Integer, List<Maintenance>> maintenanceByAdministratorId = new HashMap<>();
+    private Map<Integer, List<Maintenance>> maintenanceByTypeMaintenanceId = new HashMap<>();
+    private Map<Integer, List<Maintenance>> maintenanceByFailureReportId = new HashMap<>();
 
     @Autowired
     public MaintenanceAppServiceAdministrator(IMaintenanceAdministratorService maintenanceService, MaintenanceAdministratorMapper maintenanceMapper) {
@@ -40,7 +45,7 @@ public class MaintenanceAppServiceAdministrator {
     }
 
     //Update maintenance
-    public Optional<Maintenance> updateMaintenance(int id, AddMaintenanceAdminDTO dto) {
+    public Optional<Maintenance> updateMaintenance(int id, UpdateMaintenanceDTO dto) {
         return maintenanceService.updateMaintenance(id, maintenanceMapper.updateEntity(dto));
     }
 
@@ -49,4 +54,8 @@ public class MaintenanceAppServiceAdministrator {
         Maintenance maintenanceToDelete = maintenanceMapper.toEntityForDeletion(deleteDTO);
         return maintenanceService.deleteMaintenanceById(maintenanceToDelete.getIdMaintenance());
     }
+
+    //Buscar maintenance
+
+
 }
