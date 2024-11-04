@@ -18,7 +18,8 @@ public class JobAppServiceMechanic {
     private final SparePartMechanicMapper jobMapper;
 
     @Autowired
-    public JobAppServiceMechanic(IJobMechanicService jobService, SparePartMechanicMapper jobMapper) {
+    public JobAppServiceMechanic(IJobMechanicService jobService,
+                                 SparePartMechanicMapper jobMapper) {
         this.jobService = jobService;
         this.jobMapper = jobMapper;
     }
