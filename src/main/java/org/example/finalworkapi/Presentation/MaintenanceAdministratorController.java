@@ -3,20 +3,23 @@ package org.example.finalworkapi.Presentation;
 import org.example.finalworkapi.Application.ApplicationServices.MaintenanceAppServiceAdministrator;
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.AddMaintenanceAdminDTO;
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.ListMaintenanceAdminDTO;
-import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.SearchMaintenanceDTO;
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.UpdateMaintenanceDTO;
-import org.example.finalworkapi.Domain.Entities.*;
+import org.example.finalworkapi.Domain.Entities.Maintenance;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Optional;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/maintenance")
 public class MaintenanceAdministratorController {
+
+    private static final Logger logger = LoggerFactory.getLogger(MaintenanceAdministratorController.class);
 
     @Autowired
     private MaintenanceAppServiceAdministrator maintenanceApplicationService;
@@ -28,8 +31,14 @@ public class MaintenanceAdministratorController {
     //List maintenance
     @GetMapping("/administrator")
     public ResponseEntity<List<ListMaintenanceAdminDTO>> getMaintenanceDetails() {
-        List<ListMaintenanceAdminDTO> details = maintenanceApplicationService.getAllMaintenanceDetails();
-        return ResponseEntity.ok(details);
+        try {
+            List<ListMaintenanceAdminDTO> details = maintenanceApplicationService.getAllMaintenanceDetails();
+            return ResponseEntity.ok(details);
+        } catch (Exception e) {
+            logger.error("Error retrieving maintenance details: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(null);
+        }
     }
 
     //Add maintenance

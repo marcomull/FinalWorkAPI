@@ -18,10 +18,6 @@ public class MaintenanceAppServiceAdministrator {
 
     private final IMaintenanceAdministratorService maintenanceService;
     private final MaintenanceAdministratorMapper maintenanceMapper;
-    private Map<Integer, List<Maintenance>> maintenanceByVehicleId = new HashMap<>();
-    private Map<Integer, List<Maintenance>> maintenanceByAdministratorId = new HashMap<>();
-    private Map<Integer, List<Maintenance>> maintenanceByTypeMaintenanceId = new HashMap<>();
-    private Map<Integer, List<Maintenance>> maintenanceByFailureReportId = new HashMap<>();
 
     @Autowired
     public MaintenanceAppServiceAdministrator(IMaintenanceAdministratorService maintenanceService, MaintenanceAdministratorMapper maintenanceMapper) {
@@ -31,11 +27,15 @@ public class MaintenanceAppServiceAdministrator {
 
     //List maintenance
     public List<ListMaintenanceAdminDTO> getAllMaintenanceDetails() {
-        List<Object[]> maintenanceList = maintenanceService.getAllMaintenanceDetails();
-
-        return maintenanceList.stream()
-                .map(maintenanceMapper::toDTO)
-                .collect(Collectors.toList());
+        List<Maintenance> maintenanceList = maintenanceService.getAllMaintenanceDetails();
+        try {
+            return maintenanceList.stream()
+                    .map(maintenanceMapper::toDTO)
+                    .collect(Collectors.toList());
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
     }
 
     //Add maintenance

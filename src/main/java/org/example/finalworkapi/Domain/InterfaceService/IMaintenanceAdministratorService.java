@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IMaintenanceAdministratorService {
-    List<Object[]> getAllMaintenanceDetails();
+    List<Maintenance> getAllMaintenanceDetails();
     Maintenance addMaintenance(Maintenance maintenance);
     Optional<Maintenance> updateMaintenance(int id, Maintenance maintenanceDetails);
     boolean deleteMaintenanceById(int id);

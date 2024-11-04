@@ -2,7 +2,6 @@ package org.example.finalworkapi.Domain.DomainServices;
 
 import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.RepositoryInterfaces.IMaintenanceRepository;
-import org.example.finalworkapi.Infrastructure.DatabaseConfiguration.ContextMaintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceAdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,19 +11,17 @@ import java.util.Optional;
 @Service
 public class MaintenanceAdministratorService implements IMaintenanceAdministratorService {
 
-    private final ContextMaintenance databaseContext;
     private final IMaintenanceRepository maintenanceRepository;
 
     @Autowired
-    public MaintenanceAdministratorService(ContextMaintenance databaseContext, IMaintenanceRepository maintenanceRepository) {
-        this.databaseContext = databaseContext;
+    public MaintenanceAdministratorService(IMaintenanceRepository maintenanceRepository) {
         this.maintenanceRepository = maintenanceRepository;
     }
 
     //List maintenance
     @Override
-    public List<Object[]> getAllMaintenanceDetails() {
-        return databaseContext.findAllMaintenanceDetails();
+    public List<Maintenance> getAllMaintenanceDetails() {
+        return maintenanceRepository.findAll();
     }
 
     //Add maintenance
