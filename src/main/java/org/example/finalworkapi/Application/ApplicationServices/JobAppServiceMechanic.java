@@ -1,14 +1,13 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
+import org.example.finalworkapi.Domain.Entities.Job;
 import org.example.finalworkapi.Domain.InterfaceService.IJobMechanicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.example.finalworkapi.Application.DTOs.JobMechanicDTO;
+import org.example.finalworkapi.Application.DTOs.MechanicDTO.JobMechanicDTO;
 import org.example.finalworkapi.Application.Mappers.SparePartMechanicMapper;
-import org.example.finalworkapi.Domain.DomainServices.JobMechanicService;
 //import org.example.finalworkapi.mappers.MaintenanceAdministratorMapper;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,9 +24,7 @@ public class JobAppServiceMechanic {
     }
 
     public List<JobMechanicDTO> getAllJobs() {
-
-        List<Object[]> maintenanceList = jobService.getAllJobs();
-
+        List<Job> maintenanceList = jobService.getAllJobs();
         return maintenanceList.stream()
                 .map(jobMapper::toDTO)
                 .collect(Collectors.toList());

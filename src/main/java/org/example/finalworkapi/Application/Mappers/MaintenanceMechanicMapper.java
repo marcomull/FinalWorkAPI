@@ -1,21 +1,22 @@
 package org.example.finalworkapi.Application.Mappers;
 
-import org.example.finalworkapi.Application.DTOs.MaintenanceMechanicDTO;
+import org.example.finalworkapi.Application.DTOs.MechanicDTO.MaintenanceMechanicDTO;
+import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.springframework.stereotype.Component;
-import java.util.Date;
 
 @Component
 public class MaintenanceMechanicMapper {
 
-    public MaintenanceMechanicDTO toDTO(Object[] maintenanceData) {
+    //List maintenance
+    public MaintenanceMechanicDTO toDTO(Maintenance maintenance) {
         MaintenanceMechanicDTO dto = new MaintenanceMechanicDTO();
-        dto.setIdMaintenance((Integer) maintenanceData[0]);
-        dto.setMileage((Integer) maintenanceData[1]);
-        dto.setPlate((String) maintenanceData[2]);
-        dto.setBrand((String) maintenanceData[3]);
-        dto.setModel((String) maintenanceData[4]);
-        dto.setYearManufacture((Date) maintenanceData[5]);
-        dto.setMaintenancePlan((String) maintenanceData[6]);
+        dto.setIdMaintenance(maintenance.getIdMaintenance());
+        dto.setMileage(maintenance.getVehicle().getMileage());
+        dto.setPlate(maintenance.getVehicle().getPlate());
+        dto.setBrand(maintenance.getVehicle().getBrand());
+        dto.setModel(maintenance.getVehicle().getModel());
+        dto.setYearManufacture(maintenance.getVehicle().getYearManufacture());
+        dto.setMaintenancePlan(maintenance.getVehicle().getMaintenancePlan());
         return dto;
     }
 

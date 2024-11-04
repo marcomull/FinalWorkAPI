@@ -1,8 +1,8 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
-import org.example.finalworkapi.Application.DTOs.MaintenanceMechanicDTO;
+import org.example.finalworkapi.Application.DTOs.MechanicDTO.MaintenanceMechanicDTO;
 import org.example.finalworkapi.Application.Mappers.MaintenanceMechanicMapper;
-import org.example.finalworkapi.Domain.DomainServices.MaintenanceMechanicService;
+import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceMechanicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +22,7 @@ public class MaintenanceAppServiceMechanic {
     }
 
     public List<MaintenanceMechanicDTO> getAllMaintenanceMechanic() {
-        List<Object[]> maintenanceList = maintenanceService.getAllMaintenanceMechanic();
-
+        List<Maintenance> maintenanceList = maintenanceService.getAllMaintenanceMechanic();
         return maintenanceList.stream()
                 .map(maintenanceMapper::toDTO)
                 .collect(Collectors.toList());

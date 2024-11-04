@@ -1,9 +1,8 @@
 package org.example.finalworkapi.Presentation;
 
 import org.example.finalworkapi.Application.ApplicationServices.JobAppServiceMechanic;
-import org.example.finalworkapi.Application.DTOs.JobMechanicDTO;
+import org.example.finalworkapi.Application.DTOs.MechanicDTO.JobMechanicDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +22,8 @@ public class JobMechanicController {
 
     @GetMapping
     public ResponseEntity<List<JobMechanicDTO>> getAllJobs() {
-
         List<JobMechanicDTO> details = appServiceJob.getAllJobs();
         return ResponseEntity.ok(details);
-
     }
 
 }

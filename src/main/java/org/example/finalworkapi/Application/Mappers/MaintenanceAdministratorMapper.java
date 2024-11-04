@@ -12,19 +12,19 @@ import java.util.Date;
 public class MaintenanceAdministratorMapper {
 
     //List maintenance
-    public ListMaintenanceAdminDTO toDTO(Object[] maintenanceData) {
+    public ListMaintenanceAdminDTO toDTO(Maintenance maintenance) {
         ListMaintenanceAdminDTO dto = new ListMaintenanceAdminDTO();
-        dto.setIdMaintenance((Integer) maintenanceData[0]);
-        dto.setMileage((Integer) maintenanceData[1]);
-        dto.setPlate((String) maintenanceData[2]);
-        dto.setBrand((String) maintenanceData[3]);
-        dto.setModel((String) maintenanceData[4]);
-        dto.setYearManufacture((Date) maintenanceData[5]);
-        dto.setMaintenancePlan((String) maintenanceData[6]);
-        dto.setNameType((String) maintenanceData[7]);
-        dto.setDescriptionReport((String) maintenanceData[8]);
-        dto.setDateMaintenance((Date) maintenanceData[9]);
-        dto.setDescriptions((String) maintenanceData[10]);
+        dto.setIdMaintenance(maintenance.getIdMaintenance());
+        dto.setMileage(maintenance.getVehicle().getMileage());
+        dto.setPlate(maintenance.getVehicle().getPlate());
+        dto.setBrand(maintenance.getVehicle().getBrand());
+        dto.setModel(maintenance.getVehicle().getModel());
+        dto.setYearManufacture(maintenance.getVehicle().getYearManufacture());
+        dto.setMaintenancePlan(maintenance.getVehicle().getMaintenancePlan());
+        dto.setNameType(maintenance.getTypeMaintenance().getNameType());
+        dto.setDescriptionReport(maintenance.getFailureReport().getDescriptionReport());
+        dto.setDateMaintenance(maintenance.getDateMaintenance());
+        dto.setDescriptions(maintenance.getDescriptions());
         return dto;
     }
 
