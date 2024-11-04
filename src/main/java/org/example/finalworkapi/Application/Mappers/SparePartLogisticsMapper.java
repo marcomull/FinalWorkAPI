@@ -1,17 +1,19 @@
 package org.example.finalworkapi.Application.Mappers;
 
 import org.example.finalworkapi.Application.DTOs.JobLogisticsDTO;
+import org.example.finalworkapi.Domain.Entities.Job;
 import org.springframework.stereotype.Component;
-import java.util.Date;
 
 @Component
 public class SparePartLogisticsMapper {
-    public JobLogisticsDTO toDTO(Object[] maintenanceData) {
+
+    //List job
+    public JobLogisticsDTO toDTO(Job job) {
         JobLogisticsDTO dto = new JobLogisticsDTO();
-        dto.setIdSparePart((Integer) maintenanceData[0]);
-        dto.setStartMaintenance((Date) maintenanceData[1]);
-        dto.setSparePart((String) maintenanceData[2]);
-        dto.setMechanic((Integer) maintenanceData[3]);
+        dto.setIdSparePart((job.getIdSparePart().getIdSparePart()));
+        dto.setStartMaintenance(job.getStartMaintenance());
+        dto.setSparePart(job.getIdSparePart().getSparePart());
+        dto.setMechanic(job.getIdMechanic().getIdMechanic());
         return dto;
     }
 }

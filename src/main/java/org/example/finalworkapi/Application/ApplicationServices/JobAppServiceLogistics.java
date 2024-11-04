@@ -2,7 +2,7 @@ package org.example.finalworkapi.Application.ApplicationServices;
 
 import org.example.finalworkapi.Application.DTOs.JobLogisticsDTO;
 import org.example.finalworkapi.Application.Mappers.SparePartLogisticsMapper;
-import org.example.finalworkapi.Domain.DomainServices.JobLogisticsService;
+import org.example.finalworkapi.Domain.Entities.Job;
 import org.example.finalworkapi.Domain.InterfaceService.IJobLogisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,20 +19,15 @@ public class JobAppServiceLogistics {
 
     @Autowired
     public JobAppServiceLogistics(IJobLogisticsService jobLogisticsService,
-            SparePartLogisticsMapper jobLogisticsMapper) {
+                                  SparePartLogisticsMapper jobLogisticsMapper) {
         this.jobLogisticsService = jobLogisticsService;
         this.jobLogisticsMapper = jobLogisticsMapper;
     }
 
     public List<JobLogisticsDTO> getAllJobsLogistics() {
-        
-            List<Object[]> maintenanceList = jobLogisticsService.getAllJobsLogistics();
-            if (maintenanceList == null || maintenanceList.isEmpty()) {
-                return Collections.emptyList();
-            }
-            return maintenanceList.stream()
-                    .map(jobLogisticsMapper::toDTO)
-                    .collect(Collectors.toList());
-       
+        List<Job> maintenanceList = jobLogisticsService.getAllJobsLogistics();
+        return maintenanceList.stream()
+                .map(jobLogisticsMapper::toDTO)
+                .collect(Collectors.toList());
     }
 }
