@@ -1,7 +1,7 @@
-package org.example.finalworkapi.Application.Mappers;
+package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
-import org.example.finalworkapi.Application.DTOs.SparePartRequestDTO;
-import org.springframework.stereotype.Component;
+import org.example.finalworkapi.Application.DTOs.LogisticsDTO.SparePartRequestDTO;
+
 import java.util.Date;
 
 public class SparePartRequestMapper {

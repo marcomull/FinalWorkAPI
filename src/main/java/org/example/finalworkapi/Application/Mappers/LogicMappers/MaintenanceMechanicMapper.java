@@ -1,4 +1,4 @@
-package org.example.finalworkapi.Application.Mappers;
+package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
 import org.example.finalworkapi.Application.DTOs.MechanicDTO.MaintenanceMechanicDTO;
 import org.example.finalworkapi.Domain.Entities.Maintenance;

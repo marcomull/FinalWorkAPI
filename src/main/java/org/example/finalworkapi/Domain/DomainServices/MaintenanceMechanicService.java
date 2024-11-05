@@ -2,7 +2,7 @@ package org.example.finalworkapi.Domain.DomainServices;
 
 import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceMechanicService;
-import org.example.finalworkapi.Domain.RepositoryInterfaces.IMechanicalRepository;
+import org.example.finalworkapi.Infrastructure.InterfaceRepository.IMechanicalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

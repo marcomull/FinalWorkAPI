@@ -2,7 +2,7 @@ package org.example.finalworkapi.Domain.DomainServices;
 
 import org.example.finalworkapi.Domain.Entities.Job;
 import org.example.finalworkapi.Domain.InterfaceService.IJobLogisticsService;
-import org.example.finalworkapi.Domain.RepositoryInterfaces.IJobLogisticaRepository;
+import org.example.finalworkapi.Infrastructure.InterfaceRepository.IJobLogisticaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

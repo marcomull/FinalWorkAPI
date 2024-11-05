@@ -1,7 +1,7 @@
 package org.example.finalworkapi.Domain.DomainServices;
 
 import org.example.finalworkapi.Domain.Entities.Maintenance;
-import org.example.finalworkapi.Domain.RepositoryInterfaces.IMaintenanceRepository;
+import org.example.finalworkapi.Infrastructure.InterfaceRepository.IMaintenanceRepository;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceAdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

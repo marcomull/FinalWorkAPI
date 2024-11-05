@@ -5,7 +5,7 @@ import org.example.finalworkapi.Domain.InterfaceService.IJobMechanicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.example.finalworkapi.Application.DTOs.MechanicDTO.JobMechanicDTO;
-import org.example.finalworkapi.Application.Mappers.SparePartMechanicMapper;
+import org.example.finalworkapi.Application.Mappers.LogicMappers.SparePartMechanicMapper;
 //import org.example.finalworkapi.mappers.MaintenanceAdministratorMapper;
 
 import java.util.List;

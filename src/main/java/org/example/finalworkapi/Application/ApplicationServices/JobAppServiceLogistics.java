@@ -1,13 +1,12 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
-import org.example.finalworkapi.Application.DTOs.JobLogisticsDTO;
-import org.example.finalworkapi.Application.Mappers.SparePartLogisticsMapper;
+import org.example.finalworkapi.Application.DTOs.LogisticsDTO.JobLogisticsDTO;
+import org.example.finalworkapi.Application.Mappers.LogicMappers.SparePartLogisticsMapper;
 import org.example.finalworkapi.Domain.Entities.Job;
 import org.example.finalworkapi.Domain.InterfaceService.IJobLogisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
