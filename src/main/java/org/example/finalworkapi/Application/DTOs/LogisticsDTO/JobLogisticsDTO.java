@@ -1,4 +1,4 @@
-package org.example.finalworkapi.Application.DTOs;
+package org.example.finalworkapi.Application.DTOs.LogisticsDTO;
 
 import java.util.Date;
 

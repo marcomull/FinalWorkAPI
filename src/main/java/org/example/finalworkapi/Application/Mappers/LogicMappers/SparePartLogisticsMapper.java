@@ -1,6 +1,6 @@
-package org.example.finalworkapi.Application.Mappers;
+package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
-import org.example.finalworkapi.Application.DTOs.JobLogisticsDTO;
+import org.example.finalworkapi.Application.DTOs.LogisticsDTO.JobLogisticsDTO;
 import org.example.finalworkapi.Domain.Entities.Job;
 import org.springframework.stereotype.Component;
 

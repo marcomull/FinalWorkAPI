@@ -1,4 +1,4 @@
-package org.example.finalworkapi.Application.Mappers;
+package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.AddMaintenanceAdminDTO;
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.ListMaintenanceAdminDTO;
@@ -6,7 +6,6 @@ import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.SearchMaintenanc
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.UpdateMaintenanceDTO;
 import org.example.finalworkapi.Domain.Entities.*;
 import org.springframework.stereotype.Component;
-import java.util.Date;
 
 @Component
 public class MaintenanceAdministratorMapper {

@@ -1,7 +1,7 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
 import org.example.finalworkapi.Application.DTOs.MechanicDTO.MaintenanceMechanicDTO;
-import org.example.finalworkapi.Application.Mappers.MaintenanceMechanicMapper;
+import org.example.finalworkapi.Application.Mappers.LogicMappers.MaintenanceMechanicMapper;
 import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceMechanicService;
 import org.springframework.beans.factory.annotation.Autowired;

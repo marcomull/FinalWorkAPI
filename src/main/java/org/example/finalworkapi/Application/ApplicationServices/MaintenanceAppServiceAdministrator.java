@@ -3,7 +3,7 @@ package org.example.finalworkapi.Application.ApplicationServices;
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.AddMaintenanceAdminDTO;
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.ListMaintenanceAdminDTO;
 import org.example.finalworkapi.Application.DTOs.MaintenanceDTO.UpdateMaintenanceDTO;
-import org.example.finalworkapi.Application.Mappers.MaintenanceAdministratorMapper;
+import org.example.finalworkapi.Application.Mappers.LogicMappers.MaintenanceAdministratorMapper;
 import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceAdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
