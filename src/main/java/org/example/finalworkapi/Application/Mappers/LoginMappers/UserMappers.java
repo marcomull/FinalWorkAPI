@@ -4,10 +4,13 @@ import org.example.finalworkapi.Application.DTOs.LoginDTO.UserDTO;
 import org.example.finalworkapi.Domain.Entities.Administrator;
 import org.example.finalworkapi.Domain.Entities.Logistics;
 import org.example.finalworkapi.Domain.Entities.Mechanic;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMappers {
 
-    public static UserDTO toDTO(Administrator administrator) {
+    // Mapeo de Administrator a UserDTO
+    public UserDTO toDTO(Administrator administrator) {
         UserDTO dto = new UserDTO();
         dto.setId(administrator.getIdAdministrator());
         dto.setEmail(administrator.getEmail());
@@ -15,7 +18,8 @@ public class UserMappers {
         return dto;
     }
 
-    public static UserDTO toDTO(Logistics logistics) {
+    // Mapeo de Logistics a UserDTO
+    public UserDTO toDTO(Logistics logistics) {
         UserDTO dto = new UserDTO();
         dto.setId(logistics.getIdLogistics());
         dto.setEmail(logistics.getEmail());
@@ -23,7 +27,8 @@ public class UserMappers {
         return dto;
     }
 
-    public static UserDTO toDTO(Mechanic mechanic) {
+    // Mapeo de Mechanic a UserDTO
+    public UserDTO toDTO(Mechanic mechanic) {
         UserDTO dto = new UserDTO();
         dto.setId(mechanic.getIdMechanic());
         dto.setEmail(mechanic.getEmail());
@@ -31,3 +36,4 @@ public class UserMappers {
         return dto;
     }
 }
+
