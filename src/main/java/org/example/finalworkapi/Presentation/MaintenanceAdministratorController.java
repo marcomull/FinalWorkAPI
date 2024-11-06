@@ -88,5 +88,33 @@ public class MaintenanceAdministratorController {
     }
 
     //Search mantenimiento
+    @GetMapping("/search")
+    public ResponseEntity<List<ListMaintenanceAdminDTO>> searchMaintenance(
+            @RequestParam("type") String searchType,
+            @RequestParam("value") String searchValue) {
 
+        logger.info("Searching maintenance with type: {} and value: {}", searchType, searchValue);
+
+        if (!isValidSearchType(searchType)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+
+        try {
+            List<ListMaintenanceAdminDTO> result = maintenanceApplicationService.searchMaintenance(searchType, searchValue);
+            return result.isEmpty()
+                    ? new ResponseEntity<>(HttpStatus.NOT_FOUND)
+                    : new ResponseEntity<>(result, HttpStatus.OK);
+        } catch (Exception e) {
+            logger.error("Error performing search: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+    // Método para validar los tipos de búsqueda
+    private boolean isValidSearchType(String searchType) {
+        return searchType.equals("maintenanceId") ||
+                searchType.equals("failureReportId") ||
+                searchType.equals("vehicleId") ||
+                searchType.equals("administratorId") ||
+                searchType.equals("typeMaintenanceId");
+    }
 }

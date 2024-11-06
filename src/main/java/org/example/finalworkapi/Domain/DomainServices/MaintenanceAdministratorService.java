@@ -5,6 +5,8 @@ import org.example.finalworkapi.Infrastructure.InterfaceRepository.IMaintenanceR
 import org.example.finalworkapi.Domain.InterfaceService.IMaintenanceAdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,5 +59,21 @@ public class MaintenanceAdministratorService implements IMaintenanceAdministrato
     }
 
     //Buscar maintenance
-
+    @Override
+    public List<Maintenance> searchBySingleParameter(String searchType, String searchValue) {
+        switch (searchType) {
+            case "maintenanceId":
+                return maintenanceRepository.findByIdMaintenance(Integer.parseInt(searchValue));
+            case "failureReportId":
+                return maintenanceRepository.findByFailureReportIdFailureReport(Integer.parseInt(searchValue));
+            case "vehicleId":
+                return maintenanceRepository.findByVehicleIdVehicle(Integer.parseInt(searchValue));
+            case "administratorId":
+                return maintenanceRepository.findByAdministratorIdAdministrator(Integer.parseInt(searchValue));
+            case "typeMaintenanceId":
+                return maintenanceRepository.findByTypeMaintenanceIdTypeMaintenance(Integer.parseInt(searchValue));
+            default:
+                return Collections.emptyList();
+        }
+    }
 }

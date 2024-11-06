@@ -33,7 +33,6 @@ public class MaintenanceAppServiceAdministrator {
                     .map(maintenanceMapper::toDTO)
                     .collect(Collectors.toList());
         } catch (ClassCastException e) {
-            e.printStackTrace();
             return Collections.emptyList();
         }
     }
@@ -56,6 +55,11 @@ public class MaintenanceAppServiceAdministrator {
     }
 
     //Buscar maintenance
-
+    public List<ListMaintenanceAdminDTO> searchMaintenance(String searchType, String searchValue) {
+        List<Maintenance> maintenanceList = maintenanceService.searchBySingleParameter(searchType, searchValue);
+        return maintenanceList.stream()
+                .map(maintenanceMapper::toDTO)
+                .collect(Collectors.toList());
+    }
 
 }
