@@ -5,13 +5,6 @@ public class UserDTO {
     private String email;
     private String password;
 
-
-    public UserDTO(int id, String email, String password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-    }
-
     public UserDTO(){
     }
 
