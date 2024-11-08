@@ -1,11 +1,11 @@
 package org.example.finalworkapi.Application.DTOs.LoginDTO;
 
-public class UserDTO {
+public class LoginDTO {
     private int id;
     private String email;
     private String password;
 
-    public UserDTO(){
+    public LoginDTO(){
     }
 
     public int getId() {

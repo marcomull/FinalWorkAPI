@@ -1,17 +1,17 @@
 package org.example.finalworkapi.Application.Mappers.LoginMappers;
 
-import org.example.finalworkapi.Application.DTOs.LoginDTO.UserDTO;
+import org.example.finalworkapi.Application.DTOs.LoginDTO.LoginDTO;
 import org.example.finalworkapi.Domain.Entities.Administrator;
 import org.example.finalworkapi.Domain.Entities.Logistics;
 import org.example.finalworkapi.Domain.Entities.Mechanic;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserMappers {
+public class LoginMappers {
 
     // Mapeo de Administrator a UserDTO
-    public UserDTO toDTO(Administrator administrator) {
-        UserDTO dto = new UserDTO();
+    public LoginDTO toDTO(Administrator administrator) {
+        LoginDTO dto = new LoginDTO();
         dto.setId(administrator.getIdAdministrator());
         dto.setEmail(administrator.getEmail());
         dto.setPassword(administrator.getPassword());
@@ -19,8 +19,8 @@ public class UserMappers {
     }
 
     // Mapeo de Logistics a UserDTO
-    public UserDTO toDTO(Logistics logistics) {
-        UserDTO dto = new UserDTO();
+    public LoginDTO toDTO(Logistics logistics) {
+        LoginDTO dto = new LoginDTO();
         dto.setId(logistics.getIdLogistics());
         dto.setEmail(logistics.getEmail());
         dto.setPassword(logistics.getPassword());
@@ -28,8 +28,8 @@ public class UserMappers {
     }
 
     // Mapeo de Mechanic a UserDTO
-    public UserDTO toDTO(Mechanic mechanic) {
-        UserDTO dto = new UserDTO();
+    public LoginDTO toDTO(Mechanic mechanic) {
+        LoginDTO dto = new LoginDTO();
         dto.setId(mechanic.getIdMechanic());
         dto.setEmail(mechanic.getEmail());
         dto.setPassword(mechanic.getPassword());
