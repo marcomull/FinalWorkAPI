@@ -1,18 +1,18 @@
 package org.example.finalworkapi.Application.DTOs.FailureReportDTO;
 
-public class FailureReportDTO {
+public class ListFailureReportDTO {
 
     private int idFailureReport;
     private int idDriver;
     private String descriptionReport;
 
-    public FailureReportDTO(int idFailureReport, int idDriver, String descriptionReport) {
+    public ListFailureReportDTO(int idFailureReport, int idDriver, String descriptionReport) {
         this.idFailureReport = idFailureReport;
         this.idDriver = idDriver;
         this.descriptionReport = descriptionReport;
     }
 
-    public FailureReportDTO() {}
+    public ListFailureReportDTO() {}
 
     public int getIdFailureReport() {
         return idFailureReport;

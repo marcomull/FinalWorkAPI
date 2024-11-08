@@ -1,9 +1,7 @@
 package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
 import org.example.finalworkapi.Application.DTOs.TypeMaintenanceDTO.ListTypeMaintenanceDTO;
-import org.example.finalworkapi.Application.DTOs.VehicleDTO.VehicleDTO;
 import org.example.finalworkapi.Domain.Entities.TypeMaintenance;
-import org.example.finalworkapi.Domain.Entities.Vehicle;
 import org.springframework.stereotype.Component;
 
 @Component

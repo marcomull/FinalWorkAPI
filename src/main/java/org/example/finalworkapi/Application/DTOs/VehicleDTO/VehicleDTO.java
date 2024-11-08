@@ -2,19 +2,28 @@ package org.example.finalworkapi.Application.DTOs.VehicleDTO;
 
 public class VehicleDTO {
 
+    private int idVehicle;
     private String brand;
     private String model;
     private String plate;
 
-    public VehicleDTO(String brand, String model, String plate) {
+    public VehicleDTO(int idVehicle,String brand, String model, String plate) {
         this.brand = brand;
         this.model = model;
         this.plate = plate;
+        this.idVehicle = idVehicle;
     }
 
     public VehicleDTO() {
     }
 
+    public int getIdVehicle() {
+        return idVehicle;
+    }
+
+    public void setIdVehicle(int idVehicle) {
+        this.idVehicle = idVehicle;
+    }
     public String getBrand() {
         return brand;
     }
