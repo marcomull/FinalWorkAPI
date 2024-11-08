@@ -5,13 +5,18 @@ import org.example.finalworkapi.Domain.InterfaceServiceLogin.IAdministratorServi
 import org.example.finalworkapi.Infrastructure.InterfaceRepositoryLogin.IAdministratorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class AdministratorService implements IAdministratorService {
 
-    @Autowired
     private IAdministratorRepository administratorRepository;
+
+    @Autowired
+    public AdministratorService(IAdministratorRepository administratorRepository) {
+        this.administratorRepository = administratorRepository;
+    }
 
     @Override
     public Optional<Administrator> login(String email, String password) {
@@ -20,5 +25,10 @@ public class AdministratorService implements IAdministratorService {
             return adminOpt;
         }
         return Optional.empty();
+    }
+
+    @Override
+    public List<Administrator> getAllAdminstrator() {
+        return administratorRepository.findAll();
     }
 }
