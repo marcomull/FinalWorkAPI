@@ -23,7 +23,7 @@ public class VehicleAppService {
         this.vehicleMapper = vehicleMapper;
     }
 
-    //List maintenance
+    //List vehicle
     public List<VehicleDTO> getAllVehicle() {
         List<Vehicle> vehicleList = vehicleService.getAllVehicle();
         try {

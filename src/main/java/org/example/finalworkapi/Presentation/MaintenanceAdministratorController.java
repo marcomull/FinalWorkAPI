@@ -109,6 +109,7 @@ public class MaintenanceAdministratorController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
     // Método para validar los tipos de búsqueda
     private boolean isValidSearchType(String searchType) {
         return searchType.equals("maintenanceId") ||
@@ -117,4 +118,22 @@ public class MaintenanceAdministratorController {
                 searchType.equals("administratorId") ||
                 searchType.equals("typeMaintenanceId");
     }
+
+    // Get maintenance by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<ListMaintenanceAdminDTO> getMaintenanceById(@PathVariable int id) {
+        try {
+            Optional<ListMaintenanceAdminDTO> maintenance = maintenanceApplicationService.getMaintenanceById(id);
+
+            if (maintenance.isPresent()) {
+                return ResponseEntity.ok(maintenance.get());
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+        } catch (Exception e) {
+            logger.error("Error retrieving maintenance by ID: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
 }

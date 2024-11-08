@@ -62,4 +62,10 @@ public class MaintenanceAppServiceAdministrator {
                 .collect(Collectors.toList());
     }
 
+    public Optional<ListMaintenanceAdminDTO> getMaintenanceById(int id) {
+        Optional<Maintenance> maintenance = maintenanceService.getMaintenanceById(id);
+        return maintenance.map(maintenanceMapper::toDTO);
+    }
+
+
 }

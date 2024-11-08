@@ -76,4 +76,10 @@ public class MaintenanceAdministratorService implements IMaintenanceAdministrato
                 return Collections.emptyList();
         }
     }
+
+    @Override
+    public Optional<Maintenance> getMaintenanceById(int id) {
+        return maintenanceRepository.findById(id);
+    }
+
 }

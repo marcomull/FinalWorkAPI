@@ -11,4 +11,5 @@ public interface IMaintenanceAdministratorService {
     Optional<Maintenance> updateMaintenance(int id, Maintenance maintenanceDetails);
     boolean deleteMaintenanceById(int id);
     List<Maintenance> searchBySingleParameter(String searchType, String searchValue);
+    Optional<Maintenance> getMaintenanceById(int id);
 }
