@@ -40,6 +40,10 @@ public class SparePart {
         this.quantity = quantity;
     }
 
+    public SparePart(String sparePart) {
+        this.sparePart = sparePart;
+    }
+
     public int getIdSparePart() {
         return idSparePart;
     }

@@ -4,13 +4,12 @@ import org.example.finalworkapi.Application.ApplicationServices.JobAppServiceMec
 import org.example.finalworkapi.Application.DTOs.MechanicDTO.JobMechanicDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
-@RequestMapping("/maintenance/jobMechanic")
+@RequestMapping("/maintenance")
 public class JobMechanicController {
 
     @Autowired
@@ -20,10 +19,15 @@ public class JobMechanicController {
         this.appServiceJob = appServiceJob;
     }
 
-    @GetMapping
+    @GetMapping("/jobMechanic")
     public ResponseEntity<List<JobMechanicDTO>> getAllJobs() {
         List<JobMechanicDTO> details = appServiceJob.getAllJobs();
         return ResponseEntity.ok(details);
     }
 
+    /*@PostMapping("/createJob")
+    public ResponseEntity<JobMechanicDTO> createJob(@RequestBody JobMechanicDTO jobMechanicDTO) {
+        JobMechanicDTO createdJob = appServiceJob.createJob(jobMechanicDTO);
+        return ResponseEntity.ok(createdJob);
+    }*/
 }

@@ -31,4 +31,11 @@ public class JobAppServiceMechanic {
                 .collect(Collectors.toList());
 
     }
+
+    /*public JobMechanicDTO createJob(JobMechanicDTO jobMechanicDTO) {
+        Job job = jobMapper.toEntity(jobMechanicDTO);
+        Job savedJob = jobService.saveJob(job);
+        return jobMapper.toDTO(savedJob);
+    }*/
+
 }

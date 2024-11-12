@@ -17,10 +17,20 @@ public class MaintenanceMechanicService implements IMaintenanceMechanicService {
         this.maintenanceRepository = maintenanceRepository;
     }
 
+    //List mechanic
     @Override
     public List<Maintenance> getAllMaintenanceMechanic() {
-        return maintenanceRepository.findAll();
+        return maintenanceRepository.findByDescriptions("Activo");
     }
 
-
+    // Update description to "inactivo"
+    @Override
+    public Maintenance finalizeMaintenance(int idJob) {
+        Maintenance maintenance = maintenanceRepository.findByIdMaintenance(idJob);
+        if (maintenance != null) {
+            maintenance.setDescriptions("Inactivo");
+            maintenanceRepository.save(maintenance);
+        }
+        return maintenance;
+    }
 }
