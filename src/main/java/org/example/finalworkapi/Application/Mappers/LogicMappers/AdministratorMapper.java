@@ -16,4 +16,11 @@ public class AdministratorMapper {
         return dto;
     }
 
+    //Add Administrator
+    public Administrator toEntity(LoginDTO dto) {
+        Administrator administrator = new Administrator();
+        administrator.setEmail(dto.getEmail());
+        administrator.setPassword(dto.getPassword());
+        return administrator;
+    }
 }

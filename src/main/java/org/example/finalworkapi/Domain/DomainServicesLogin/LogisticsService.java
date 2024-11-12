@@ -21,4 +21,9 @@ public class LogisticsService implements ILogisticsService {
         }
         return Optional.empty();
     }
+
+    @Override
+    public Logistics addLogistic(Logistics Logistics) {
+        return logisticsRepository.save(Logistics);
+    }
 }

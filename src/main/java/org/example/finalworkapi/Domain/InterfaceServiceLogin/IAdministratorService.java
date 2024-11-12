@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface IAdministratorService {
     Optional<Administrator> login(String email, String password);
     List<Administrator> getAllAdminstrator();
+    Administrator addAdministrator(Administrator administrator);
 }
