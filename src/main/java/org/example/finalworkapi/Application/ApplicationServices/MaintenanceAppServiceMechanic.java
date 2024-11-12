@@ -21,6 +21,7 @@ public class MaintenanceAppServiceMechanic {
         this.maintenanceMapper = maintenanceMapper;
     }
 
+    //List mechanic
     public List<MaintenanceMechanicDTO> getAllMaintenanceMechanic() {
         List<Maintenance> maintenanceList = maintenanceService.getAllMaintenanceMechanic();
         return maintenanceList.stream()
@@ -28,4 +29,9 @@ public class MaintenanceAppServiceMechanic {
                 .collect(Collectors.toList());
     }
 
+    //Update description "inactivo"
+    public MaintenanceMechanicDTO finalizeMaintenance(int maintenanceId) {
+        Maintenance maintenance = maintenanceService.finalizeMaintenance(maintenanceId);
+        return maintenanceMapper.toDTO(maintenance);
+    }
 }

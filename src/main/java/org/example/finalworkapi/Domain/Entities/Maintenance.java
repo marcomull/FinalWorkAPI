@@ -56,6 +56,10 @@ public class Maintenance {
         this.descriptions = descriptions;
     }
 
+    public Maintenance(int idMaintenance) {
+        this.idMaintenance = idMaintenance;
+    }
+
     public int getIdMaintenance() {
         return idMaintenance;
     }

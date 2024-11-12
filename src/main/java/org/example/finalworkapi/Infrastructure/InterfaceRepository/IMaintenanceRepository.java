@@ -14,7 +14,6 @@ public interface IMaintenanceRepository extends JpaRepository<Maintenance, Integ
     List<Maintenance> findByVehicleIdVehicle(Integer vehicleId);
     List<Maintenance> findByAdministratorIdAdministrator(Integer administratorId);
     List<Maintenance> findByTypeMaintenanceIdTypeMaintenance(Integer typeMaintenanceId);
-
     Optional<Maintenance> findById(int id);
 }
 

@@ -4,13 +4,12 @@ import org.example.finalworkapi.Application.ApplicationServices.MaintenanceAppSe
 import org.example.finalworkapi.Application.DTOs.MechanicDTO.MaintenanceMechanicDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
-@RequestMapping("/maintenance/mechanic")
+@RequestMapping("/maintenance")
 public class MaintenanceMechanicController {
 
     @Autowired
@@ -20,12 +19,14 @@ public class MaintenanceMechanicController {
         this.maintenanceApplicationService = maintenanceApplicationService;
     }
 
-    @GetMapping
+    @GetMapping("/mechanic")
     public ResponseEntity<List<MaintenanceMechanicDTO>> getMaintenanceMechanic() {
-
         List<MaintenanceMechanicDTO> details = maintenanceApplicationService.getAllMaintenanceMechanic();
         return ResponseEntity.ok(details);
-
     }
 
+    @PutMapping("/finalize/{id}")
+    public MaintenanceMechanicDTO finalizeMaintenance(@PathVariable("id") int id) {
+        return maintenanceApplicationService.finalizeMaintenance(id);
+    }
 }

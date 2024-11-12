@@ -26,6 +26,10 @@ public class Mechanic {
         this.password = password;
     }
 
+    public Mechanic(int idMechanic) {
+        this.idMechanic = idMechanic;
+    }
+
     public int getIdMechanic() {
         return idMechanic;
     }

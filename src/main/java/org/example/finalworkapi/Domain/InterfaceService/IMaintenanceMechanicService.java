@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface IMaintenanceMechanicService {
     List<Maintenance> getAllMaintenanceMechanic();
+    Maintenance finalizeMaintenance(int maintenanceId);
 }

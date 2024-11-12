@@ -5,18 +5,38 @@ import java.util.Date;
 public class JobMechanicDTO {
 
     private int idJob;
+    private int idMaintenance;
+    private int idMechanic;
     private Date startMaintenance;
     private Date endMaintenance;
     private String sparePart;
 
-    public JobMechanicDTO(int idJob, Date startMaintenance, Date endMaintenance, String sparePart) {
+    public JobMechanicDTO() {
+    }
+
+    public JobMechanicDTO(int idJob, int idMaintenance, int idMechanic, Date startMaintenance, Date endMaintenance, String sparePart) {
         this.idJob = idJob;
+        this.idMaintenance = idMaintenance;
+        this.idMechanic = idMechanic;
         this.startMaintenance = startMaintenance;
         this.endMaintenance = endMaintenance;
         this.sparePart = sparePart;
     }
 
-    public JobMechanicDTO() {
+    public int getIdMechanic() {
+        return idMechanic;
+    }
+
+    public void setIdMechanic(int idMechanic) {
+        this.idMechanic = idMechanic;
+    }
+
+    public int getIdMaintenance() {
+        return idMaintenance;
+    }
+
+    public void setIdMaintenance(int idMaintenance) {
+        this.idMaintenance = idMaintenance;
     }
 
     public int getIdJob() {
