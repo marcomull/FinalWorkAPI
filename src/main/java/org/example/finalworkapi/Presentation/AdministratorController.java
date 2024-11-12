@@ -2,12 +2,12 @@ package org.example.finalworkapi.Presentation;
 
 import org.example.finalworkapi.Application.ApplicationServices.AdministratorAppService;
 import org.example.finalworkapi.Application.DTOs.AdministratorDTO.ListAdministratorDTO;
-import org.example.finalworkapi.Application.DTOs.FailureReportDTO.ListFailureReportDTO;
+import org.example.finalworkapi.Application.DTOs.LoginDTO.LoginDTO;
+import org.example.finalworkapi.Domain.Entities.Administrator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
@@ -24,5 +24,16 @@ public class AdministratorController {
     @GetMapping("/listAdministrator")
     public List<ListAdministratorDTO> getAdministrator() {
         return administratorAppService.getAllAdministrator();
+    }
+
+    //Add administrator
+    @PostMapping("/add")
+    public ResponseEntity<String> addAdministrator(@RequestBody LoginDTO addAdministratorDTO) {
+        try {
+            Administrator savedMaintenance = administratorAppService.addAdministrator(addAdministratorDTO);
+            return ResponseEntity.ok("Registro de administrador agregado exitosamente" + savedMaintenance.getEmail());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al agregar el registro de administrador: " + e.getMessage());
+        }
     }
 }

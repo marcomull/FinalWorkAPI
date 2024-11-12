@@ -21,4 +21,9 @@ public class MechanicService implements IMechanicService {
         }
         return Optional.empty();
     }
+
+    @Override
+    public Mechanic addMechanic(Mechanic mechanic) {
+        return mechanicRepository.save(mechanic);
+    }
 }

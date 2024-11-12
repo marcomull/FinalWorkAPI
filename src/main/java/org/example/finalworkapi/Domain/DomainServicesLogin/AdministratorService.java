@@ -1,6 +1,7 @@
 package org.example.finalworkapi.Domain.DomainServicesLogin;
 
 import org.example.finalworkapi.Domain.Entities.Administrator;
+import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceServiceLogin.IAdministratorService;
 import org.example.finalworkapi.Infrastructure.InterfaceRepositoryLogin.IAdministratorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,10 @@ public class AdministratorService implements IAdministratorService {
     @Override
     public List<Administrator> getAllAdminstrator() {
         return administratorRepository.findAll();
+    }
+
+    @Override
+    public Administrator addAdministrator(Administrator administrator) {
+        return administratorRepository.save(administrator);
     }
 }

@@ -5,4 +5,5 @@ import java.util.Optional;
 
 public interface IMechanicService {
     Optional<Mechanic> login(String email, String password);
+    Mechanic addMechanic(Mechanic mechanic);
 }
