@@ -25,8 +25,8 @@ public class MaintenanceMechanicService implements IMaintenanceMechanicService {
 
     // Update description to "inactivo"
     @Override
-    public Maintenance finalizeMaintenance(int idJob) {
-        Maintenance maintenance = maintenanceRepository.findByIdMaintenance(idJob);
+    public Maintenance finalizeMaintenance(int idMaintenance) {
+        Maintenance maintenance = maintenanceRepository.findByIdMaintenance(idMaintenance);
         if (maintenance != null) {
             maintenance.setDescriptions("Inactivo");
             maintenanceRepository.save(maintenance);

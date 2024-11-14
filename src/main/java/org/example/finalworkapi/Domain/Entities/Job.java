@@ -29,9 +29,11 @@ public class Job {
     @JoinColumn(name ="idSparePart")
     protected SparePart idSparePart;
 
+    @Temporal(TemporalType.DATE)
     @JoinColumn(name ="startMaintenance")
     protected Date startMaintenance;
 
+    @Temporal(TemporalType.DATE)
     @JoinColumn(name ="endMaintenance")
     protected Date endMaintenance;
 

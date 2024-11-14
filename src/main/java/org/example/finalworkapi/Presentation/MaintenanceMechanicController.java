@@ -27,6 +27,11 @@ public class MaintenanceMechanicController {
 
     @PutMapping("/finalize/{id}")
     public MaintenanceMechanicDTO finalizeMaintenance(@PathVariable("id") int id) {
-        return maintenanceApplicationService.finalizeMaintenance(id);
+        try {
+            return maintenanceApplicationService.finalizeMaintenance(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

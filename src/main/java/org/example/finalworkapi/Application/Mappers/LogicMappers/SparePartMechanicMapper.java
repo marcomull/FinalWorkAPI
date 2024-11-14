@@ -1,6 +1,7 @@
 package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
-import org.example.finalworkapi.Application.DTOs.MechanicDTO.JobMechanicDTO;
+import org.example.finalworkapi.Application.DTOs.JobDTO.AddJobDTO;
+import org.example.finalworkapi.Application.DTOs.JobDTO.ListJobDTO;
 import org.example.finalworkapi.Domain.Entities.*;
 import org.springframework.stereotype.Component;
 
@@ -8,9 +9,10 @@ import org.springframework.stereotype.Component;
 public class SparePartMechanicMapper {
 
     //List job
-    public JobMechanicDTO toDTO(Job job) {
-        JobMechanicDTO dto = new JobMechanicDTO();
+    public ListJobDTO toDTO(Job job) {
+        ListJobDTO dto = new ListJobDTO();
         dto.setIdJob(job.getIdJob());
+        dto.setIdMaintenance(job.getIdMaintenance().getIdMaintenance());
         dto.setStartMaintenance(job.getStartMaintenance());
         dto.setSparePart(job.getIdSparePart().getSparePart());
         dto.setEndMaintenance(job.getEndMaintenance());
@@ -18,13 +20,14 @@ public class SparePartMechanicMapper {
     }
 
     //Add job
-    /*public Job toEntity(JobMechanicDTO dto) {
+    public Job toEntity(AddJobDTO dto) {
         Job job = new Job();
         job.setIdMaintenance(new Maintenance(dto.getIdMaintenance()));
         job.setIdMechanic(new Mechanic(dto.getIdMechanic()));
-        job.setIdSparePart(new SparePart(dto.getSparePart()));
+        job.setIdSparePart(new SparePart(dto.getIdSparePart()));
         job.setStartMaintenance(dto.getStartMaintenance());
+        job.setEndMaintenance(dto.getEndMaintenance());
         return job;
-    }*/
+    }
 
 }
