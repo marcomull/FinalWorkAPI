@@ -40,8 +40,8 @@ public class SparePart {
         this.quantity = quantity;
     }
 
-    public SparePart(String sparePart) {
-        this.sparePart = sparePart;
+    public SparePart(int sparePart) {
+        this.idSparePart = sparePart;
     }
 
     public int getIdSparePart() {

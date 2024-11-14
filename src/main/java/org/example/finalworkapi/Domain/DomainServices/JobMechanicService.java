@@ -22,9 +22,9 @@ public class JobMechanicService implements IJobMechanicService {
         return jobRepository.findAll();
     }
 
-    /*@Override
-    public Job saveJob(Job job) {
+    @Override
+    public Job AddJob(Job job) {
         return jobRepository.save(job);
-    }*/
+    }
 
 }

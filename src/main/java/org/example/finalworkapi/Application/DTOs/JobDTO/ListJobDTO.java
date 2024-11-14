@@ -1,42 +1,28 @@
-package org.example.finalworkapi.Application.DTOs.MechanicDTO;
+package org.example.finalworkapi.Application.DTOs.JobDTO;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class JobMechanicDTO {
+public class ListJobDTO {
 
     private int idJob;
     private int idMaintenance;
-    private int idMechanic;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startMaintenance;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endMaintenance;
     private String sparePart;
 
-    public JobMechanicDTO() {
-    }
-
-    public JobMechanicDTO(int idJob, int idMaintenance, int idMechanic, Date startMaintenance, Date endMaintenance, String sparePart) {
+    public ListJobDTO(int idJob, int idMaintenance, Date startMaintenance, Date endMaintenance, String sparePart) {
         this.idJob = idJob;
         this.idMaintenance = idMaintenance;
-        this.idMechanic = idMechanic;
         this.startMaintenance = startMaintenance;
         this.endMaintenance = endMaintenance;
         this.sparePart = sparePart;
     }
 
-    public int getIdMechanic() {
-        return idMechanic;
-    }
-
-    public void setIdMechanic(int idMechanic) {
-        this.idMechanic = idMechanic;
-    }
-
-    public int getIdMaintenance() {
-        return idMaintenance;
-    }
-
-    public void setIdMaintenance(int idMaintenance) {
-        this.idMaintenance = idMaintenance;
+    public ListJobDTO(){
     }
 
     public int getIdJob() {
@@ -69,5 +55,13 @@ public class JobMechanicDTO {
 
     public void setSparePart(String sparePart) {
         this.sparePart = sparePart;
+    }
+
+    public int getIdMaintenance() {
+        return idMaintenance;
+    }
+
+    public void setIdMaintenance(int idMaintenance) {
+        this.idMaintenance = idMaintenance;
     }
 }

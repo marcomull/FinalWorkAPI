@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface IJobMechanicService {
     List<Job> getAllJobs();
-    //Job saveJob(Job job);
+    Job AddJob(Job job);
 }

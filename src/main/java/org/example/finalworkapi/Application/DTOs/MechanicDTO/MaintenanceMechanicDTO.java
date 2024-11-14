@@ -1,5 +1,7 @@
 package org.example.finalworkapi.Application.DTOs.MechanicDTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class MaintenanceMechanicDTO {
@@ -8,8 +10,10 @@ public class MaintenanceMechanicDTO {
     private String plate;
     private String brand;
     private String model;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date yearManufacture;
     private int mileage;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private String maintenancePlan;
 
     public MaintenanceMechanicDTO() {
