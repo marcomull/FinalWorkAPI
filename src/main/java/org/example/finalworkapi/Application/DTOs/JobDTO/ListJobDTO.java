@@ -8,15 +8,17 @@ public class ListJobDTO {
 
     private int idJob;
     private int idMaintenance;
+    private String description;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startMaintenance;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endMaintenance;
     private String sparePart;
 
-    public ListJobDTO(int idJob, int idMaintenance, Date startMaintenance, Date endMaintenance, String sparePart) {
+    public ListJobDTO(int idJob, int idMaintenance, String description, Date startMaintenance, Date endMaintenance, String sparePart) {
         this.idJob = idJob;
         this.idMaintenance = idMaintenance;
+        this.description = description;
         this.startMaintenance = startMaintenance;
         this.endMaintenance = endMaintenance;
         this.sparePart = sparePart;
@@ -63,5 +65,13 @@ public class ListJobDTO {
 
     public void setIdMaintenance(int idMaintenance) {
         this.idMaintenance = idMaintenance;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

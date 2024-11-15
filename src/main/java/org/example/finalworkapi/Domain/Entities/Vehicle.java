@@ -1,6 +1,8 @@
 package org.example.finalworkapi.Domain.Entities;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Vehicle {
     protected String brand;
     protected String model;
     protected String plate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     protected Date yearManufacture;
     protected int mileage;
     protected String maintenancePlan;

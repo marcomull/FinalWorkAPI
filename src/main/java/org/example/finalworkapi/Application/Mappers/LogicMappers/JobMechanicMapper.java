@@ -6,20 +6,21 @@ import org.example.finalworkapi.Domain.Entities.*;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SparePartMechanicMapper {
+public class JobMechanicMapper {
 
-    //List job
+    //List job mechanic
     public ListJobDTO toDTO(Job job) {
         ListJobDTO dto = new ListJobDTO();
         dto.setIdJob(job.getIdJob());
         dto.setIdMaintenance(job.getIdMaintenance().getIdMaintenance());
+        dto.setDescription(job.getIdMaintenance().getDescriptions());
         dto.setStartMaintenance(job.getStartMaintenance());
         dto.setSparePart(job.getIdSparePart().getSparePart());
         dto.setEndMaintenance(job.getEndMaintenance());
         return dto;
     }
 
-    //Add job
+    //Add job mechanic
     public Job toEntity(AddJobDTO dto) {
         Job job = new Job();
         job.setIdMaintenance(new Maintenance(dto.getIdMaintenance()));

@@ -20,6 +20,7 @@ public class JobLogisticsController {
         this.appServiceJob = appServiceJob;
     }
 
+    //List jobs spare part
     @GetMapping
     public ResponseEntity<List<JobLogisticsDTO>> getAllJobs() {
         List<JobLogisticsDTO> details = appServiceJob.getAllJobsLogistics();

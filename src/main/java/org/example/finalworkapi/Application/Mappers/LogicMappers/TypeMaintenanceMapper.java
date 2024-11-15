@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TypeMaintenanceMapper {
 
-    //List vehicle
+    //List type maintenance
     public ListTypeMaintenanceDTO toDTO(TypeMaintenance typeMaintenance) {
         ListTypeMaintenanceDTO dto = new ListTypeMaintenanceDTO();
         dto.setIdTypeMaintenance(typeMaintenance.getIdTypeMaintenance());

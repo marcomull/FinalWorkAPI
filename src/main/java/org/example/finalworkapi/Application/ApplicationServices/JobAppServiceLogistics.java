@@ -23,6 +23,7 @@ public class JobAppServiceLogistics {
         this.jobLogisticsMapper = jobLogisticsMapper;
     }
 
+    //List solicitudes logistics
     public List<JobLogisticsDTO> getAllJobsLogistics() {
         List<Job> maintenanceList = jobLogisticsService.getAllJobsLogistics();
         return maintenanceList.stream()

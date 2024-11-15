@@ -1,11 +1,10 @@
-package org.example.finalworkapi.Application.DTOs.LogisticsDTO;
-
+package org.example.finalworkapi.Application.DTOs.SparePartDTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class SparePartRequestDTO {
+public class ListSparePartDTO {
 
     protected int idSparePart;
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -13,15 +12,14 @@ public class SparePartRequestDTO {
     protected String sparePart;
     protected int quantity;
 
-    public SparePartRequestDTO(int idSparePart, Date arrivalDate, String sparePart, int quantity) {
+    public ListSparePartDTO(int idSparePart, Date arrivalDate, String sparePart, int quantity) {
         this.idSparePart = idSparePart;
         this.arrivalDate = arrivalDate;
         this.sparePart = sparePart;
         this.quantity = quantity;
     }
 
-    public SparePartRequestDTO() {
-    }
+    public ListSparePartDTO() {}
 
     public int getIdSparePart() {
         return idSparePart;

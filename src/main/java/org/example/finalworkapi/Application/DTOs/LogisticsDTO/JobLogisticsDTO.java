@@ -1,10 +1,13 @@
 package org.example.finalworkapi.Application.DTOs.LogisticsDTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class JobLogisticsDTO {
 
     private int idSparePart;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date startMaintenance;
     private String sparePart;
     private int mechanic;
