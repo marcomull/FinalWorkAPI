@@ -1,6 +1,5 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.example.finalworkapi.Application.DTOs.MechanicDTO.MaintenanceMechanicDTO;
 import org.example.finalworkapi.Application.Mappers.LogicMappers.MaintenanceMechanicMapper;
 import org.example.finalworkapi.Domain.Entities.Maintenance;
@@ -33,14 +32,6 @@ public class MaintenanceAppServiceMechanic {
     //Update description "inactivo"
     public MaintenanceMechanicDTO finalizeMaintenance(int maintenanceId) {
         Maintenance maintenance = maintenanceService.finalizeMaintenance(maintenanceId);
-
-        if (maintenance == null) {
-            throw new EntityNotFoundException("No se encontró el mantenimiento con id " + maintenanceId);
-        } else {
-            System.out.println("El mantenimiento encontrado tiene el id: " + maintenance.getIdMaintenance());
-        }
-
-
         return maintenanceMapper.toDTO(maintenance);
     }
 }

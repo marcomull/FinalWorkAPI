@@ -1,6 +1,7 @@
 package org.example.finalworkapi.Application.DTOs.MaintenanceDTO;
 
 public class SearchMaintenanceDTO {
+
     private int maintenanceId;
     private int failureReportId;
     private int vehicleId;

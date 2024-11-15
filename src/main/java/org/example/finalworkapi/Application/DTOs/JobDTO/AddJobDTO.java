@@ -13,7 +13,7 @@ public class AddJobDTO {
     private Date startMaintenance;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endMaintenance;
-    private int IdSparePart;
+    private int idSparePart;
 
     public AddJobDTO(int idJob, int idMaintenance, int idMechanic, Date startMaintenance, Date endMaintenance, int idSparePart) {
         this.idJob = idJob;
@@ -21,7 +21,7 @@ public class AddJobDTO {
         this.idMechanic = idMechanic;
         this.startMaintenance = startMaintenance;
         this.endMaintenance = endMaintenance;
-        IdSparePart = idSparePart;
+        this.idSparePart = idSparePart;
     }
 
     public AddJobDTO() {}
@@ -67,8 +67,10 @@ public class AddJobDTO {
     }
 
     public int getIdSparePart() {
-        return IdSparePart;
+        return idSparePart;
     }
 
-
+    public void setIdSparePart(int idSparePart) {
+        this.idSparePart = idSparePart;
+    }
 }

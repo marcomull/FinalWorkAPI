@@ -15,9 +15,9 @@ import java.util.List;
 @RequestMapping("/maintenance")
 public class JobMechanicController {
 
-    @Autowired
     private JobAppServiceMechanic appServiceJob;
 
+    @Autowired
     public JobMechanicController(JobAppServiceMechanic appServiceJob) {
         this.appServiceJob = appServiceJob;
     }
@@ -36,6 +36,7 @@ public class JobMechanicController {
             Job savedJob = appServiceJob.addJob(jobMechanicDTO);
             return ResponseEntity.ok("Registro de mantenimiento agregado exitosamente" + savedJob.getIdJob());
         } catch (Exception e) {
+            e.printStackTrace(); // Para depurar el error
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al agregar el registro de mantenimiento: " + e.getMessage());
         }
     }
