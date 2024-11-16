@@ -1,7 +1,6 @@
 package org.example.finalworkapi.Domain.Entities;
 
 import java.util.Date;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +16,11 @@ public class SparePart {
     @JoinColumn(name = "idLogistics")
     protected Logistics idLogistics;
 
+    @ManyToOne
+    @JoinColumn(name = "idMechanic")
+    protected Mechanic idMechanic;
+
+    @Temporal(TemporalType.DATE)
     @JoinColumn(name = "arrivalDate")
     protected Date arrivalDate;
 
@@ -32,9 +36,10 @@ public class SparePart {
     public SparePart() {
     }
 
-    public SparePart(int idSparePart, Logistics idLogistics, Date arrivalDate, String sparePart, int quantity) {
+    public SparePart(int idSparePart, Logistics idLogistics, Mechanic idMechanic, Date arrivalDate, String sparePart, int quantity) {
         this.idSparePart = idSparePart;
         this.idLogistics = idLogistics;
+        this.idMechanic = idMechanic;
         this.arrivalDate = arrivalDate;
         this.sparePart = sparePart;
         this.quantity = quantity;
@@ -84,4 +89,11 @@ public class SparePart {
         this.quantity = quantity;
     }
 
+    public Mechanic getIdMechanic() {
+        return idMechanic;
+    }
+
+    public void setIdMechanic(Mechanic idMechanic) {
+        this.idMechanic = idMechanic;
+    }
 }
