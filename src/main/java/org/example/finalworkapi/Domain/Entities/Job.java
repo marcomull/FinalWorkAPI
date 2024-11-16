@@ -25,10 +25,6 @@ public class Job {
     @JoinColumn(name ="idMechanic")
     protected Mechanic idMechanic;
 
-    @ManyToOne
-    @JoinColumn(name ="idSparePart")
-    protected SparePart idSparePart;
-
     @Temporal(TemporalType.DATE)
     @JoinColumn(name ="startMaintenance")
     protected Date startMaintenance;
@@ -43,11 +39,10 @@ public class Job {
     public Job() {
     }
 
-    public Job(int idJob, Maintenance idMaintenance, Mechanic idMechanic, SparePart idSparePart, Date startMaintenance, Date endMaintenance) {
+    public Job(int idJob, Maintenance idMaintenance, Mechanic idMechanic, Date startMaintenance, Date endMaintenance) {
         this.idJob = idJob;
         this.idMaintenance = idMaintenance;
         this.idMechanic = idMechanic;
-        this.idSparePart = idSparePart;
         this.startMaintenance = startMaintenance;
         this.endMaintenance = endMaintenance;
     }
@@ -74,14 +69,6 @@ public class Job {
 
     public void setIdMechanic(Mechanic idMechanic) {
         this.idMechanic = idMechanic;
-    }
-
-    public SparePart getIdSparePart() {
-        return idSparePart;
-    }
-
-    public void setIdSparePart(SparePart idSparePart) {
-        this.idSparePart = idSparePart;
     }
 
     public Date getStartMaintenance() {

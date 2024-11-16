@@ -15,7 +15,6 @@ public class JobMechanicMapper {
         dto.setIdMaintenance(job.getIdMaintenance().getIdMaintenance());
         dto.setDescription(job.getIdMaintenance().getDescriptions());
         dto.setStartMaintenance(job.getStartMaintenance());
-        dto.setSparePart(job.getIdSparePart().getSparePart());
         dto.setEndMaintenance(job.getEndMaintenance());
         return dto;
     }
@@ -25,7 +24,6 @@ public class JobMechanicMapper {
         Job job = new Job();
         job.setIdMaintenance(new Maintenance(dto.getIdMaintenance()));
         job.setIdMechanic(new Mechanic(dto.getIdMechanic()));
-        job.setIdSparePart(new SparePart(dto.getIdSparePart()));
         job.setStartMaintenance(dto.getStartMaintenance());
         job.setEndMaintenance(dto.getEndMaintenance());
         return job;

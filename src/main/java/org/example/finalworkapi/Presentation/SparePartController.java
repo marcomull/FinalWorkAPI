@@ -22,7 +22,7 @@ public class SparePartController {
     }
 
     //List maintenance
-    @GetMapping("/list")
+    @GetMapping("/listsparePart")
     public ResponseEntity<List<ListSparePartDTO>> getMaintenanceDetails() {
         try {
             List<ListSparePartDTO> details = sparePartAppServiceJob.getAllSpareParts();

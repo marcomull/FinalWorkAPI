@@ -10,12 +10,14 @@ public class ListSparePartDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     protected Date arrivalDate;
     protected String sparePart;
+    protected String mechanic;
     protected int quantity;
 
-    public ListSparePartDTO(int idSparePart, Date arrivalDate, String sparePart, int quantity) {
+    public ListSparePartDTO(int idSparePart, Date arrivalDate, String sparePart, String mechanic, int quantity) {
         this.idSparePart = idSparePart;
         this.arrivalDate = arrivalDate;
         this.sparePart = sparePart;
+        this.mechanic = mechanic;
         this.quantity = quantity;
     }
 
@@ -51,5 +53,13 @@ public class ListSparePartDTO {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getMechanic() {
+        return mechanic;
+    }
+
+    public void setMechanic(String mechanic) {
+        this.mechanic = mechanic;
     }
 }

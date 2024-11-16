@@ -13,6 +13,8 @@ public class SparePartMapper {
         dto.setIdSparePart(sparePart.getIdSparePart());
         dto.setArrivalDate(sparePart.getArrivalDate());
         dto.setSparePart(sparePart.getSparePart());
+        dto.setMechanic(sparePart.getIdMechanic().getEmail());
+        dto.setQuantity(sparePart.getQuantity());
         return dto;
     }
 
