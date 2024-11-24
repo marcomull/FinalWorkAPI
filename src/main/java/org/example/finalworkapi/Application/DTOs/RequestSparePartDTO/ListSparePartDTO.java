@@ -1,4 +1,4 @@
-package org.example.finalworkapi.Application.DTOs.SparePartDTO;
+package org.example.finalworkapi.Application.DTOs.RequestSparePartDTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

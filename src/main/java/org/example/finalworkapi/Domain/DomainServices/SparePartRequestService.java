@@ -18,9 +18,15 @@ public class SparePartRequestService implements ISparePartRequestService {
         this.spareRepository = spareRepository;
     }
 
-    //List spare part
+    //List request spare part
     @Override
     public List<SparePart> getAllSparePart() {
         return spareRepository.findAll();
+    }
+
+    //Add request spare part
+    @Override
+    public SparePart addSparePart(SparePart sparePart) {
+        return spareRepository.save(sparePart);
     }
 }

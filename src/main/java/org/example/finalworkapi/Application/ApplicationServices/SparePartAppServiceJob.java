@@ -1,6 +1,7 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
-import org.example.finalworkapi.Application.DTOs.SparePartDTO.ListSparePartDTO;
+import org.example.finalworkapi.Application.DTOs.RequestSparePartDTO.AddSparePartDTO;
+import org.example.finalworkapi.Application.DTOs.RequestSparePartDTO.ListSparePartDTO;
 import org.example.finalworkapi.Application.Mappers.LogicMappers.SparePartMapper;
 import org.example.finalworkapi.Domain.Entities.SparePart;
 import org.example.finalworkapi.Domain.InterfaceService.ISparePartRequestService;
@@ -27,5 +28,11 @@ public class SparePartAppServiceJob {
         return spareParts.stream()
                 .map(sparePartMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    //Add request spare part
+    public SparePart addRequestSparePart(AddSparePartDTO addSparePartDTO) {
+        SparePart sparePart = sparePartMapper.toEntity(addSparePartDTO);
+        return sparePartRequestService.addSparePart(sparePart);
     }
 }
