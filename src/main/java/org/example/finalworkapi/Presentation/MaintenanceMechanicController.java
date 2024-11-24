@@ -1,6 +1,7 @@
 package org.example.finalworkapi.Presentation;
 
 import org.example.finalworkapi.Application.ApplicationServices.MaintenanceAppServiceMechanic;
+import org.example.finalworkapi.Application.DTOs.JobDTO.ListJobDTO;
 import org.example.finalworkapi.Application.DTOs.MechanicDTO.MaintenanceMechanicDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +26,12 @@ public class MaintenanceMechanicController {
         return ResponseEntity.ok(details);
     }
 
-    @PutMapping("/finalize/{id}")
-    public MaintenanceMechanicDTO finalizeMaintenance(@PathVariable("id") int id) {
-        try {
-            return maintenanceApplicationService.finalizeMaintenance(id);
-        } catch (Exception e) {
-            e.printStackTrace();
+    @PutMapping("/finalizeMaintenance/{id}")
+    public ResponseEntity<MaintenanceMechanicDTO> finalizeMaintenance(@PathVariable int id) {
+        MaintenanceMechanicDTO finalizedJob = maintenanceApplicationService.finalizeMaintenance(id);
+        if (finalizedJob != null) {
+            return ResponseEntity.ok(finalizedJob);
         }
-        return null;
+        return ResponseEntity.notFound().build();
     }
 }

@@ -39,4 +39,10 @@ public class JobAppServiceMechanic {
         return jobService.AddJob(job);
     }
 
+    // Finalize Job
+    public ListJobDTO finalizeJob(int jobId) {
+        Job finalizedJob = jobService.finalizeJob(jobId);
+        return jobMapper.toDTO(finalizedJob);
+    }
+
 }
