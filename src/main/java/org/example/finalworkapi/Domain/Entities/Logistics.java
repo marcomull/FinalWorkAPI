@@ -26,6 +26,10 @@ public class Logistics {
         this.password = password;
     }
 
+    public Logistics(String logistics) {
+        this.idLogistics = Integer.parseInt(logistics);
+    }
+
     public int getIdLogistics() {
         return idLogistics;
     }

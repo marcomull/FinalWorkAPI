@@ -30,6 +30,10 @@ public class Mechanic {
         this.idMechanic = idMechanic;
     }
 
+    public Mechanic(String mechanic) {
+        this.email = mechanic;
+    }
+
     public int getIdMechanic() {
         return idMechanic;
     }
