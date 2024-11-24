@@ -40,4 +40,14 @@ public class JobMechanicController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al agregar el registro de mantenimiento: " + e.getMessage());
         }
     }
+
+    //Finalizar trabajo
+    @PutMapping("/finalizeJob/{id}")
+    public ResponseEntity<ListJobDTO> finalizeJob(@PathVariable int id) {
+        ListJobDTO finalizedJob = appServiceJob.finalizeJob(id);
+        if (finalizedJob != null) {
+            return ResponseEntity.ok(finalizedJob);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

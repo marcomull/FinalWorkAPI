@@ -6,4 +6,5 @@ import java.util.List;
 public interface IJobMechanicService {
     List<Job> getAllJobs();
     Job AddJob(Job job);
+    Job finalizeJob(int jobId);
 }
