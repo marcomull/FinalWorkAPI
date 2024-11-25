@@ -12,42 +12,27 @@ public class SparePart {
     @Column(name = "idSparePart")
     protected int idSparePart;
 
-    @ManyToOne
-    @JoinColumn(name = "idLogistics")
-    protected Logistics idLogistics;
-
-    @ManyToOne
-    @JoinColumn(name = "idMechanic")
-    protected Mechanic idMechanic;
-
-    @Temporal(TemporalType.DATE)
-    @JoinColumn(name = "arrivalDate")
-    protected Date arrivalDate;
-
     @JoinColumn(name = "sparePart")
     protected String sparePart;
 
-    @JoinColumn(name = "quantity")
+    @JoinColumn(name = "stock")
     protected int quantity;
+
+    @JoinColumn(name = "price")
+    protected int price;
 
     // Constructors, getters, setters
     // You can generate these using your IDE or manually
 
-    public SparePart() {
-    }
 
-    public SparePart(int idSparePart, Logistics idLogistics, Mechanic idMechanic, Date arrivalDate, String sparePart, int quantity) {
+    public SparePart(int idSparePart, String sparePart, int quantity, int price) {
         this.idSparePart = idSparePart;
-        this.idLogistics = idLogistics;
-        this.idMechanic = idMechanic;
-        this.arrivalDate = arrivalDate;
         this.sparePart = sparePart;
         this.quantity = quantity;
+        this.price = price;
     }
 
-    public SparePart(int sparePart) {
-        this.idSparePart = sparePart;
-    }
+    public SparePart() {}
 
     public int getIdSparePart() {
         return idSparePart;
@@ -55,22 +40,6 @@ public class SparePart {
 
     public void setIdSparePart(int idSparePart) {
         this.idSparePart = idSparePart;
-    }
-
-    public Logistics getIdLogistics() {
-        return idLogistics;
-    }
-
-    public void setIdLogistics(Logistics idLogistics) {
-        this.idLogistics = idLogistics;
-    }
-
-    public Date getArrivalDate() {
-        return arrivalDate;
-    }
-
-    public void setArrivalDate(Date arrivalDate) {
-        this.arrivalDate = arrivalDate;
     }
 
     public String getSparePart() {
@@ -89,11 +58,11 @@ public class SparePart {
         this.quantity = quantity;
     }
 
-    public Mechanic getIdMechanic() {
-        return idMechanic;
+    public int getPrice() {
+        return price;
     }
 
-    public void setIdMechanic(Mechanic idMechanic) {
-        this.idMechanic = idMechanic;
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
