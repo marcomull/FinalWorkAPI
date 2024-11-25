@@ -30,6 +30,10 @@ public class Logistics {
         this.idLogistics = Integer.parseInt(logistics);
     }
 
+    public Logistics(int idLogistics) {
+        this.idLogistics = idLogistics;
+    }
+
     public int getIdLogistics() {
         return idLogistics;
     }
