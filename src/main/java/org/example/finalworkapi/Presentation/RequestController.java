@@ -1,6 +1,6 @@
 package org.example.finalworkapi.Presentation;
 
-import org.example.finalworkapi.Application.ApplicationServices.RequestAppServiceJob;
+import org.example.finalworkapi.Application.ApplicationServices.RequestAppService;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.AddRequestDTO;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.ListRequestDTO;
 import org.example.finalworkapi.Domain.Entities.Request;
@@ -8,21 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/request")
 public class RequestController {
 
-    private final RequestAppServiceJob requestAppServiceJob;
+    private final RequestAppService requestAppServiceJob;
 
     @Autowired
-    public RequestController(RequestAppServiceJob requestAppServiceJob) {
+    public RequestController(RequestAppService requestAppServiceJob) {
         this.requestAppServiceJob = requestAppServiceJob;
     }
 
-    //List maintenance
+    //List request
     @GetMapping("/listRequest")
     public ResponseEntity<List<ListRequestDTO>> getMaintenanceDetails() {
         try {
@@ -43,5 +42,15 @@ public class RequestController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al agregar el registro solicitud repuesto: " + e.getMessage());
         }
+    }
+
+    //Seleccionar solicitudes
+    @PutMapping("/Select/{id}")
+    public ResponseEntity<ListRequestDTO> finalizeJob(@PathVariable int id) {
+        ListRequestDTO requestSend = requestAppServiceJob.SelectRequest(id);
+        if (requestSend != null) {
+            return ResponseEntity.ok(requestSend);
+        }
+        return ResponseEntity.notFound().build();
     }
 }

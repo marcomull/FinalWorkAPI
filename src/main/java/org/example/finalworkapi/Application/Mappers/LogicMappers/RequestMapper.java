@@ -2,7 +2,6 @@ package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
 import org.example.finalworkapi.Application.DTOs.RequestDTO.AddRequestDTO;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.ListRequestDTO;
-import org.example.finalworkapi.Domain.Entities.Logistics;
 import org.example.finalworkapi.Domain.Entities.Mechanic;
 import org.example.finalworkapi.Domain.Entities.Request;
 import org.springframework.stereotype.Component;
