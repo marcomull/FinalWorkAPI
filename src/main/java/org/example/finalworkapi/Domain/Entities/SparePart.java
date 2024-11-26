@@ -1,6 +1,9 @@
 package org.example.finalworkapi.Domain.Entities;
 
-import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.*;
 
 @Entity
@@ -19,13 +22,13 @@ public class SparePart {
     protected int stock;
 
     @JoinColumn(name = "price")
-    protected int price;
+    protected double price;
 
     // Constructors, getters, setters
     // You can generate these using your IDE or manually
 
 
-    public SparePart(int idSparePart, String sparePart, int stock, int price) {
+    public SparePart(int idSparePart, String sparePart, int stock, double price) {
         this.idSparePart = idSparePart;
         this.sparePart = sparePart;
         this.stock = stock;
@@ -33,6 +36,10 @@ public class SparePart {
     }
 
     public SparePart() {}
+
+    public SparePart(int idSparePart) {
+        this.idSparePart = idSparePart;
+    }
 
     public int getIdSparePart() {
         return idSparePart;
@@ -58,11 +65,11 @@ public class SparePart {
         this.stock = stock;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

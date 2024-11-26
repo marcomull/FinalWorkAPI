@@ -13,6 +13,10 @@ public class LogisticsService implements ILogisticsService {
     @Autowired
     private ILogisticsRepository logisticsRepository;
 
+    public LogisticsService(ILogisticsRepository logisticsRepository) {
+        this.logisticsRepository = logisticsRepository;
+    }
+
     @Override
     public Optional<Logistics> login(String email, String password) {
         Optional<Logistics> logisticsOpt = logisticsRepository.findByEmail(email);

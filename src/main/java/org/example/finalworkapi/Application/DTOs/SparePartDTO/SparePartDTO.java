@@ -5,9 +5,9 @@ public class SparePartDTO {
     protected int idSparePart;
     protected String sparePart;
     protected int stock;
-    protected int price;
+    protected double price;
 
-    public SparePartDTO(int idSparePart, String sparePart, int stock, int price) {
+    public SparePartDTO(int idSparePart, String sparePart, int stock, double price) {
         this.idSparePart = idSparePart;
         this.sparePart = sparePart;
         this.stock = stock;
@@ -40,11 +40,11 @@ public class SparePartDTO {
         this.stock = stock;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

@@ -7,6 +7,7 @@ import org.example.finalworkapi.Domain.InterfaceService.ISparePartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,5 +28,27 @@ public class SparePartAppService {
         return spareParts.stream()
                 .map(sparePartMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    //Add spare part
+    public SparePart addSeparePart(SparePartDTO sparePartDTO) {
+        SparePart sparePart = sparePartMapper.toEntity(sparePartDTO);
+        return sparePartService.addSparePart(sparePart);
+    }
+
+    //Update repuesto
+    public Optional<SparePart> updateSparePart(int id, SparePartDTO dto) {
+        return sparePartService.updateSparePart(id, sparePartMapper.updateEntity(dto));
+    }
+
+    public Optional<SparePartDTO> getSparePartById(int id) {
+        Optional<SparePart> sparePart = sparePartService.getSparePartById(id);
+        return sparePart.map(sparePartMapper::toDTO);
+    }
+
+    //Delete SparePart
+    public boolean deleteSparePart(SparePartDTO deleteDTO) {
+        SparePart sparePart = sparePartMapper.toEntityForDeletion(deleteDTO);
+        return sparePartService.deleteSparePartById(sparePart.getIdSparePart());
     }
 }

@@ -46,6 +46,10 @@ public class Request {
 
     public Request() {}
 
+    public Request(int request) {
+        this.idRequest = request;
+    }
+
     public int getIdRequest() {
         return idRequest;
     }

@@ -1,7 +1,6 @@
 package org.example.finalworkapi.Domain.DomainServicesLogin;
 
 import org.example.finalworkapi.Domain.Entities.Administrator;
-import org.example.finalworkapi.Domain.Entities.Maintenance;
 import org.example.finalworkapi.Domain.InterfaceServiceLogin.IAdministratorService;
 import org.example.finalworkapi.Infrastructure.InterfaceRepositoryLogin.IAdministratorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import java.util.Optional;
 @Service
 public class AdministratorService implements IAdministratorService {
 
-    private IAdministratorRepository administratorRepository;
+    private final IAdministratorRepository administratorRepository;
 
     @Autowired
     public AdministratorService(IAdministratorRepository administratorRepository) {
