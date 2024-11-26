@@ -1,8 +1,10 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
+import org.example.finalworkapi.Application.DTOs.JobDTO.ListJobDTO;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.AddRequestDTO;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.ListRequestDTO;
 import org.example.finalworkapi.Application.Mappers.LogicMappers.RequestMapper;
+import org.example.finalworkapi.Domain.Entities.Job;
 import org.example.finalworkapi.Domain.Entities.Request;
 import org.example.finalworkapi.Domain.InterfaceService.IRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +37,11 @@ public class RequestAppServiceJob {
     public Request addRequest(AddRequestDTO addRequestDTO) {
         Request request = requestMapper.toEntity(addRequestDTO);
         return requestService.addRequest(request);
+    }
+
+    //Seleccionar solicitud
+    public ListRequestDTO SelectRequest(int requestId) {
+        Request request = requestService.SelectRequest(requestId);
+        return requestMapper.toDTO(request);
     }
 }
