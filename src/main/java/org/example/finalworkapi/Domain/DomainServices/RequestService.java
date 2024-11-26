@@ -1,5 +1,6 @@
 package org.example.finalworkapi.Domain.DomainServices;
 
+import org.example.finalworkapi.Domain.Entities.Logistics;
 import org.example.finalworkapi.Domain.Entities.Request;
 import org.example.finalworkapi.Domain.Entities.SparePart;
 import org.example.finalworkapi.Domain.InterfaceService.IRequestService;
@@ -29,5 +30,16 @@ public class SparePartRequestService implements IRequestService {
     @Override
     public Request addRequest(Request request) {
         return spareRepository.save(request);
+    }
+
+    //Seleccionar solicitud segun logistica
+    @Override
+    public Request SelectRequest(int idRequest) {
+        Request request = spareRepository.findById(idRequest).orElse(null);
+        if (request == null) {
+            request.setIdLogistics(new Logistics());
+            spareRepository.save(request);
+        }
+        return request;
     }
 }
