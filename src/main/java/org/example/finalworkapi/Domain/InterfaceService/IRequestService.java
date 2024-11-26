@@ -7,4 +7,5 @@ public interface IRequestService {
     List<Request> getAllRequest();
     Request addRequest(Request request);
     Request SelectRequest(int idRequest);
+    Request stateComplete(int requestId);
 }

@@ -41,4 +41,16 @@ public class RequestService implements IRequestService {
         }
         return request;
     }
+
+    //Update state complete
+    @Override
+    public Request stateComplete(int requestId) {
+        Request request = spareRepository.findByIdRequest(requestId);
+        if (request != null) {
+            request.setState("Completo");
+            spareRepository.save(request);
+        }
+        return request;
+    }
+
 }

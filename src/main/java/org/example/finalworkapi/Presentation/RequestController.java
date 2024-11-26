@@ -53,4 +53,13 @@ public class RequestController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/stateComplete/{id}")
+    public ResponseEntity<ListRequestDTO> finalizeMaintenance(@PathVariable int id) {
+        ListRequestDTO stateComplete = requestAppServiceJob.finalizeRequest(id);
+        if (stateComplete != null) {
+            return ResponseEntity.ok(stateComplete);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

@@ -5,6 +5,8 @@ import org.example.finalworkapi.Domain.InterfaceServiceLogin.ILogisticsService;
 import org.example.finalworkapi.Infrastructure.InterfaceRepositoryLogin.ILogisticsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,5 +31,11 @@ public class LogisticsService implements ILogisticsService {
     @Override
     public Logistics addLogistic(Logistics Logistics) {
         return logisticsRepository.save(Logistics);
+    }
+
+    //Listar Logistica
+    @Override
+    public List<Logistics> getAllLogistics() {
+        return logisticsRepository.findAll();
     }
 }

@@ -1,7 +1,6 @@
 package org.example.finalworkapi.Application.DTOs.RequestDTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.example.finalworkapi.Domain.Entities.Mechanic;
 
 import java.util.Date;
 
@@ -9,15 +8,17 @@ public class ListRequestDTO {
 
     protected int idRequest;
     protected String mechanic;
+    protected int idLogistics;
     protected String logistics;
     @JsonFormat(pattern = "yyyy-MM-dd")
     protected Date requestDate;
     protected String description;
     protected String state;
 
-    public ListRequestDTO(int idRequest, String mechanic, String logistics, Date requestDate, String description, String state) {
+    public ListRequestDTO(int idRequest, String mechanic, int idLogistics, String logistics, Date requestDate, String description, String state) {
         this.idRequest = idRequest;
         this.mechanic = mechanic;
+        this.idLogistics = idLogistics;
         this.logistics = logistics;
         this.requestDate = requestDate;
         this.description = description;
@@ -40,6 +41,14 @@ public class ListRequestDTO {
 
     public void setMechanic(String mechanic) {
         this.mechanic = mechanic;
+    }
+
+    public int getIdLogistics() {
+        return idLogistics;
+    }
+
+    public void setIdLogistics(int idLogistics) {
+        this.idLogistics = idLogistics;
     }
 
     public String getLogistics() {

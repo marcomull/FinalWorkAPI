@@ -42,4 +42,10 @@ public class RequestAppService {
         Request request = requestService.SelectRequest(requestId);
         return requestMapper.toDTO(request);
     }
+
+    //Update state "Completo"
+    public ListRequestDTO finalizeRequest(int requestId) {
+        Request request = requestService.stateComplete(requestId);
+        return requestMapper.toDTO(request);
+    }
 }
