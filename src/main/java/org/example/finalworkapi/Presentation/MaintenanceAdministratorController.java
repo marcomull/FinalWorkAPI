@@ -30,8 +30,7 @@ public class MaintenanceAdministratorController {
             List<ListMaintenanceAdminDTO> details = maintenanceApplicationService.getAllMaintenanceDetails();
             return ResponseEntity.ok(details);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
@@ -42,7 +41,7 @@ public class MaintenanceAdministratorController {
             Maintenance savedMaintenance = maintenanceApplicationService.addMaintenance(addMaintenanceAdminDTO);
             return ResponseEntity.ok("Registro de mantenimiento agregado exitosamente" + savedMaintenance.getIdMaintenance());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al agregar el registro de mantenimiento: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
@@ -53,14 +52,9 @@ public class MaintenanceAdministratorController {
             @RequestBody UpdateMaintenanceDTO updateDTO) {
         try {
             Optional<Maintenance> updatedMaintenance = maintenanceApplicationService.updateMaintenance(id, updateDTO);
-
-            if (updatedMaintenance.isPresent()) {
-                return ResponseEntity.ok("Mantenimiento actualizado exitosamente: " + updatedMaintenance.get().getIdMaintenance());
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mantenimiento no encontrado con ID: " + id);
-            }
+            return ResponseEntity.ok("Mantenimiento actualizado exitosamente: " + updatedMaintenance.get().getIdMaintenance());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al actualizar el mantenimiento: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
@@ -71,13 +65,9 @@ public class MaintenanceAdministratorController {
             ListMaintenanceAdminDTO deleteDTO = new ListMaintenanceAdminDTO();
             deleteDTO.setIdMaintenance(id);
             boolean isDeleted = maintenanceApplicationService.deleteMaintenance(deleteDTO);
-            if (isDeleted) {
-                return ResponseEntity.ok("Mantenimiento eliminado exitosamente con ID: " + id);
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mantenimiento no encontrado con ID: " + id);
-            }
+            return ResponseEntity.ok("Mantenimiento eliminado exitosamente con ID: " + id);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el mantenimiento: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
