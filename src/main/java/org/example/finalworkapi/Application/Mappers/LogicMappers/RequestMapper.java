@@ -2,6 +2,7 @@ package org.example.finalworkapi.Application.Mappers.LogicMappers;
 
 import org.example.finalworkapi.Application.DTOs.RequestDTO.AddRequestDTO;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.ListRequestDTO;
+import org.example.finalworkapi.Domain.Entities.Logistics;
 import org.example.finalworkapi.Domain.Entities.Mechanic;
 import org.example.finalworkapi.Domain.Entities.Request;
 import org.springframework.stereotype.Component;
@@ -26,6 +27,7 @@ public class RequestMapper {
         Request request = new Request();
         request.setIdRequest(dto.getIdRequest());
         request.setIdMechanic(new Mechanic(dto.getIdMechanic()));
+        request.setIdLogistics(new Logistics(dto.getIdLogistics()));
         request.setRequestDate(dto.getRequestDate());
         request.setDescription(dto.getDescription());
         request.setState(dto.getState());
