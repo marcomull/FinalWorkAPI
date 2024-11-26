@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class JobAppServiceMechanic {
+public class JobAppMechanicService {
 
     private final IJobMechanicService jobService;
     private final JobMechanicMapper jobMapper;
 
     @Autowired
-    public JobAppServiceMechanic(IJobMechanicService jobService,
+    public JobAppMechanicService(IJobMechanicService jobService,
                                  JobMechanicMapper jobMapper) {
         this.jobService = jobService;
         this.jobMapper = jobMapper;

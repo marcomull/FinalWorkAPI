@@ -16,7 +16,7 @@ public class SparePart {
     protected String sparePart;
 
     @JoinColumn(name = "stock")
-    protected int quantity;
+    protected int stock;
 
     @JoinColumn(name = "price")
     protected int price;
@@ -25,10 +25,10 @@ public class SparePart {
     // You can generate these using your IDE or manually
 
 
-    public SparePart(int idSparePart, String sparePart, int quantity, int price) {
+    public SparePart(int idSparePart, String sparePart, int stock, int price) {
         this.idSparePart = idSparePart;
         this.sparePart = sparePart;
-        this.quantity = quantity;
+        this.stock = stock;
         this.price = price;
     }
 
@@ -50,12 +50,12 @@ public class SparePart {
         this.sparePart = sparePart;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getStock() {
+        return stock;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public int getPrice() {

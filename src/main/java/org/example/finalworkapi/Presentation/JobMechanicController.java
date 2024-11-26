@@ -1,6 +1,6 @@
 package org.example.finalworkapi.Presentation;
 
-import org.example.finalworkapi.Application.ApplicationServices.JobAppServiceMechanic;
+import org.example.finalworkapi.Application.ApplicationServices.JobAppMechanicService;
 import org.example.finalworkapi.Application.DTOs.JobDTO.AddJobDTO;
 import org.example.finalworkapi.Application.DTOs.JobDTO.ListJobDTO;
 import org.example.finalworkapi.Domain.Entities.Job;
@@ -15,10 +15,10 @@ import java.util.List;
 @RequestMapping("/maintenance")
 public class JobMechanicController {
 
-    private JobAppServiceMechanic appServiceJob;
+    private JobAppMechanicService appServiceJob;
 
     @Autowired
-    public JobMechanicController(JobAppServiceMechanic appServiceJob) {
+    public JobMechanicController(JobAppMechanicService appServiceJob) {
         this.appServiceJob = appServiceJob;
     }
 

@@ -2,7 +2,6 @@ package org.example.finalworkapi.Domain.DomainServices;
 
 import org.example.finalworkapi.Domain.Entities.Logistics;
 import org.example.finalworkapi.Domain.Entities.Request;
-import org.example.finalworkapi.Domain.Entities.SparePart;
 import org.example.finalworkapi.Domain.InterfaceService.IRequestService;
 import org.example.finalworkapi.Infrastructure.InterfaceRepository.IRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SparePartRequestService implements IRequestService {
+public class RequestService implements IRequestService {
 
     private final IRequestRepository spareRepository;
 
     @Autowired
-    public SparePartRequestService(IRequestRepository spareRepository) {
+    public RequestService(IRequestRepository spareRepository) {
         this.spareRepository = spareRepository;
     }
 

@@ -1,10 +1,8 @@
 package org.example.finalworkapi.Application.ApplicationServices;
 
-import org.example.finalworkapi.Application.DTOs.JobDTO.ListJobDTO;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.AddRequestDTO;
 import org.example.finalworkapi.Application.DTOs.RequestDTO.ListRequestDTO;
 import org.example.finalworkapi.Application.Mappers.LogicMappers.RequestMapper;
-import org.example.finalworkapi.Domain.Entities.Job;
 import org.example.finalworkapi.Domain.Entities.Request;
 import org.example.finalworkapi.Domain.InterfaceService.IRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +12,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class RequestAppServiceJob {
+public class RequestAppService {
 
     private final IRequestService requestService;
     private final RequestMapper requestMapper;
 
     @Autowired
-    public RequestAppServiceJob(IRequestService requestService, RequestMapper requestMapper) {
+    public RequestAppService(IRequestService requestService, RequestMapper requestMapper) {
         this.requestService = requestService;
         this.requestMapper = requestMapper;
     }
