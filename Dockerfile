@@ -16,6 +16,8 @@ WORKDIR /app
 # Copiar todos los archivos del proyecto
 COPY . .
 
+RUN chmod +x gradlew
+
 # Compilar el proyecto y generar el archivo JAR
 RUN ./gradlew clean bootJar --no-daemon
 
